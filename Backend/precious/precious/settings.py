@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
 from pathlib import Path
-
+import os 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -37,9 +37,12 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'blog',    
-    'corsheaders',
-    'rest_framework',
+    # Internal 
+    'blog',
+    # External apps
+    
+    'ckeditor',
+    'ckeditor_uploader',
 ]
 
 MIDDLEWARE = [
@@ -50,7 +53,6 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'corsheaders.middleware.CorsMiddleware',
 ]
 
 ROOT_URLCONF = 'precious.urls'
@@ -58,7 +60,7 @@ ROOT_URLCONF = 'precious.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -128,7 +130,54 @@ STATIC_URL = '/static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-# Django Core head here
-CORS_ORIGIN_WHITELIST = [
-     'http://localhost:3000'
-]
+
+MEDIA_URL = '/media/' 
+MEDIA_ROOT = 'media/'
+## CKEDITOR
+CKEDITOR_BASEPATH = "/static/ckeditor/ckeditor/"
+
+CKEDITOR_UPLOAD_PATH = "uploads/images"
+CKEDITOR_CONFIGS = {
+    # django-ckeditor default
+    'default': {
+        'toolbar': 'full',
+        'height': 400,
+        'width': '100%', 
+        #'filebrowserWindowHeight': 725,
+        #'filebrowserWindowWidth': 940,
+        #'toolbarCanCollapse': True,
+        #'tabSpaces': 4,
+        #'skin': 'monoo',
+        # Toolbar Style
+        # Add Code Block Plug-ins
+        'extraPlugins': ','.join(['codesnippet',]),
+        'codeSnippet_theme': 'monokai_sublime',
+    },
+    # This blongs to the Comment Blog section
+    'comments':{
+        'toolbar':'Special',
+        'tabSpaces': 4,
+        'height': 300,
+        'width': 500,
+        'toolbar_Special': 
+             [
+                 ['Bold'],
+                 ['CodeSnippet'], # here
+             ],
+        # Add Code Block Plug-ins
+        'extraPlugins': ','.join(['codesnippet',]),
+
+        'codeSnippet_theme': 'monokai_sublime',
+    }
+}
+
+# Crispy Forms
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
+
+
+
+
+
+
+CKEDITOR_FILENAME_GENERATOR = 'utils.get_filename'
