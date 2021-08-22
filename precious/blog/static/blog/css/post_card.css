@@ -1,0 +1,116 @@
+/* Container of all cards */
+.posts-container {
+	width: 100%;
+
+	display: flex;
+	flex-direction: row;
+	justify-content: space-evenly;
+	flex-wrap: wrap;
+
+	padding: 30px 0;
+}
+
+/* Each card */
+.posts-container .post-card {
+	flex-basis: 300px;
+	margin-bottom: 30px;
+
+	border-radius: 8px;
+	overflow: hidden;
+	box-shadow: 0 1px 4px 0 rgba(12, 12, 13, 0.1);
+	-moz-box-shadow: 0 1px 4px 0 rgba(12, 12, 13, 0.1);
+	-webkit-box-shadow: 0 1px 4px 0 rgba(12, 12, 13, 0.1);
+	background-color: #42414d;
+}
+
+/* Card Banner */
+.posts-container .post-card .post-img {}
+.posts-container .post-card .post-img img { width: 100%; }
+
+/* The info below banner */
+.posts-container .post-card .post-info { padding: 20px 15px; }
+.posts-container .post-card .post-info > div { margin-bottom: 20px; }
+.posts-container .post-card .post-title {
+	width: 100%;
+	display: inline-block;
+}
+.posts-container .post-card .post-title > p {
+	color: #f9f9fa;
+	font-size: 18px;
+}
+
+.posts-container .post-card .post-metadata {
+	width: 100%;
+	display: inline-block;
+	color: #b1b1b3;
+	font-size: 12px;
+}
+.posts-container .post-card .post-whoWhen {
+	display: inline-block;
+	float: right;
+	margin-left: 15px;
+}
+.posts-container .post-card .post-whoWhen a {
+	color: #b1b1b3;
+	transition: color 0.3s linear;
+}
+.posts-container .post-card .post-whoWhen a:hover {	color: #39ff14; }
+.posts-container .post-card .post-rating {
+	display: inline-block;
+	float: right;
+	direction: ltr;
+
+}
+.posts-container .post-card .post-rating i {
+	cursor: pointer;
+	color: #b1b1b3;
+	transition: color 0.3s linear;
+}
+.posts-container .post-card .post-rating i:hover {
+	color: #39ff14;;
+}
+
+.posts-container .post-card .post-summary {}
+.posts-container .post-card .post-summary p {
+	color: #f9f9fa;
+	font-size: 14px;
+}
+
+.posts-container .post-card .post-tags {}
+.posts-container .post-card .post-tags > div {
+	display: inline-block;
+	padding: 5px 10px;
+	margin-left: 2px;
+	margin-bottom: 5px;
+	border: 1px solid #b1b1b3;
+	border-radius: 20px;
+	transition: background-color 0.3s linear;
+	cursor: pointer;
+}
+.posts-container .post-card .post-tags > div:hover { background-color: #39ff14; }
+.posts-container .post-card .post-tags > div:hover  a {
+	transition: color 0.3s linear;
+	color: #42414d;
+}
+.posts-container .post-card .post-tags a {
+	color: #f9f9fa;
+	font-size: 13px;
+	text-decoration: none;
+}
+
+.posts-container .post-card .post-readmore a {
+	font-size: 13px;
+	display: block;
+	text-align: left;
+	text-decoration: none;
+	color: #f9f9fa;
+}
+.posts-container .post-card .post-readmore a:hover {
+	text-decoration: underline;
+	color: #39ff14;
+}
+.posts-container .post-card .post-readmore a::after {
+	content: " > ";
+	color: #39ff14;
+	font-size: 11px;
+}
