@@ -1,0 +1,51 @@
+{% extends 'blog/base.html' %}
+{% block content %}
+
+
+<br>
+<div class="row">
+	<div class="col">
+		<div class="card card-body">
+
+			<form method="get">
+				{{myFilter.form}}
+
+		    <button class="btn btn-primary" type="submit">Search</button>
+		  </form>
+
+		</div>
+	</div>
+	
+</div>
+<br>
+<div class="row">
+	<div class="col-md">
+		<div class="card card-body">
+			<table class="table table-sm">
+				<tr>
+					<th>تایتل</th>
+					<th>نام پروزه </th>
+					<th>تعداد ستاره ها</th>
+					<th>خلاصه</th>
+					<th>تگ</th>
+					<th>لینک</th>
+				</tr>
+                
+				{% for post in posts %}
+
+				<tr>
+					<td>{{post.title}}</td>
+					<td>{{post.name}}</td>
+					<td>{{post.stars}}</td>
+					<td>{{post.summary}}</td>
+					<td>{{post.url}}</td>
+					<td><a class="btn btn-sm btn-danger" href="{% url 'post_detail' post.id %}">لینک</a></td>
+				</tr>
+				{% endfor %}
+
+			</table>
+		</div>
+	</div>
+</div>
+
+{% endblock %}

@@ -1,14 +1,24 @@
 <!DOCTYPE html>
+{% load static %}
 <html>
 <head>
 	<meta charset="utf-8">
-	<title>Precous Source</title>
+	<title>Precous Source - {% block title %}      {% endblock %}</title>
 
 	<link rel="stylesheet" type="text/css" href="lib/fontawesome-5.15.3/css/all.min.css">
 
-	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<link rel="stylesheet" type="text/css" href="css/style.css"> 
 	<link rel="stylesheet" type="text/css" href="css/navbar.css">
 	<link rel="stylesheet" type="text/css" href="css/footer.css">
+
+<!-- DJANGO STATIC FILES CONFIG -->
+
+	<link href="{% static 'blog/css/style.css' %}" type="text/css" rel="stylesheet">
+	<link href="{% static 'blog/css/navbar.css' %}" type="text/css"  rel="stylesheet">
+	<link href="{% static 'blog/css/footer.css' %}" type="text/css" rel="stylesheet">
+	<link href="{% static 'blog/lib/fontawesome-5.15.3/css/all.min.css' %}" type="text/css" rel="stylesheet">
+
+
 </head>
 <body>
 	<nav>
@@ -29,7 +39,15 @@
 		</ul>
 	</nav>
 	<content>
+	<!-- DJANGO BASE PAGE (همه چی توی بقیه صفحه ها میاد این وسط.)-->
+	
+		  {% block content %}
 
+			{% endblock %}
+
+
+
+	
 	</content>
 	<footer>
 		<div class="footer-contactInfo">
