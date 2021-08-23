@@ -1,11 +1,12 @@
 from django.db import models 
-STATUS = (
-    (0,"Draft"),
-    (1,"Publish")
-)
+
 
 class Base(models.Model):
-	
+	STATUS = (
+		('draft', 'در حال انتظار'),
+		('published', 'منتشر شده'),
+		)
+
 	created = models.DateTimeField(auto_now_add = True, verbose_name='ساخت',null=True)
 
 	updated = models.DateTimeField(auto_now = True,verbose_name='آپدیت')

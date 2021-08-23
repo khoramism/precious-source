@@ -4,7 +4,7 @@ from django.db import models
 from .base import Base
 from .category import Category
 from ckeditor_uploader.fields import RichTextUploadingField
-
+from .langtag import LangTag
 
 class Post(Base):
 	title = models.CharField(max_length=25)
@@ -22,6 +22,8 @@ class Post(Base):
 	cat = models.ForeignKey(Category, on_delete=models.CASCADE, related_name='posts')
 	
 	video = models.URLField(max_length=1000)
+	
+	langtag = models.ForeignKey(LangTag, on_delete=models.CASCADE, related_name='posts')
 	
 	def __str__(self):
 		return self.title
