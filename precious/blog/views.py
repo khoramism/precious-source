@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, reverse
 from .models import Post
 from .filters import PostFilter
 from django.http import HttpResponse
@@ -40,5 +40,5 @@ class PostList(generic.ListView):
 
 class PostDetail(generic.DetailView):
 	model = Post
-	template_name = 'post_detail.html'
+	template_name = 'blog/post_detail.html'
 

@@ -1,4 +1,4 @@
-{% extends 'base.html' %}
+{% extends 'blog/base.html' %}
 {% load static %}
   <head>
     <meta charset="UTF-8">
@@ -17,7 +17,7 @@
 
       <div class="post-card">
         <div class="post-img">
-          <img src="{% static 'blog/img/code.img' %}">
+          <img src="{% static 'blog/img/code.jpg' %}">
         </div>
         <div class="post-info">
           <div class="post-title">
@@ -41,7 +41,8 @@
             </div>
           </div>
           <div class="post-summary">
-            <p>{{post.content|slice:":200" }}</p>
+            {{ post.media }}
+            {{post.content |safe }}
           </div>
           <div class="post-tags">
             <div><a href="#">تگ</a></div>

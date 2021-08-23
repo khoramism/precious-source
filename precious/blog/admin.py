@@ -18,6 +18,7 @@ class PostAdmin(admin.ModelAdmin):
     form = PostAdminForm
     list_filter = ("status",)
     search_fields = ['title', 'content']
+    prepopulated_fields = {'slug': ('title',)}
 # Register your models here.
 
 admin.site.register(Post, PostAdmin)
