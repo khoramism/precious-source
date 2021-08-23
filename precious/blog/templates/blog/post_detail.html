@@ -1,31 +1,60 @@
 {% extends 'base.html' %}
-    <head>
-        <meta charset="UTF-8">
-        <link rel="stylesheet"
-          href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.4.1/styles/monokai-sublime.min.css">
-        <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.4.1/highlight.min.js"></script>
-        <script>hljs.initHighlightingOnLoad();</script>
-        <title>{{ indexFunc.title }}</title>
-      </head>
-<body>
-    <!----------------------------------------------------------------
-      
-              <div class="col-md-8 mt-3 left">
-            {% for post in post_list %}
-            <div class="card mb-4">
-                <div class="card-body">
-                    <h2 class="card-title">{{ post.title }}</h2>
-                    <p class="card-text text-muted h6">{{ post.author }} | {{ post.created_on}} </p>
-                    <p class="card-text">{{post.content|slice:":200" }}</p>
-                    <a href="{% url 'post_detail' post.slug  %}" class="btn btn-primary">Read More &rarr;</a>
-                </div>
-            </div>
-            {% endfor %}
+{% load static %}
+  <head>
+    <meta charset="UTF-8">
+    <title>{{ indexFunc.title }}</title>
+
+    <link href="{% static 'blog/css/post_card.css' %}" type="text/css" rel="stylesheet">
+
+    <link rel="stylesheet"
+      href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.4.1/styles/monokai-sublime.min.css">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.4.1/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+  </head>
+{% block content %}
+
+  <div class="posts-container">
+
+      <div class="post-card">
+        <div class="post-img">
+          <img src="{% static 'blog/img/code.img' %}">
         </div>
-  
-      
-      
-      
-      >
-</body>
-</html>
+        <div class="post-info">
+          <div class="post-title">
+            <p>{{ post.title }}</p>
+          </div>
+          <div class="post-metadata">
+            <div class="post-whoWhen">
+              <p>توسط <a href="#" class="post-author">{{ post.author }}</a> در <span class="post-date">{{ post.created_on}}</span></p>
+            </div>
+            <div class="post-rating">
+              <!--
+                Full star  => fas fa-star
+                Half star  => fa-star-half-alt
+                Empty star => far fa-star
+              -->
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star-half-alt"></i>
+              <i class="far fa-star"></i>
+              <i class="far fa-star"></i>
+              <i class="far fa-star"></i>
+            </div>
+          </div>
+          <div class="post-summary">
+            <p>{{post.content|slice:":200" }}</p>
+          </div>
+          <div class="post-tags">
+            <div><a href="#">تگ</a></div>
+            <div><a href="#">تگ</a></div>
+            <div><a href="#">تگ</a></div>
+            <div><a href="#">تگ</a></div>
+            <div><a href="#">تگ</a></div>
+            <div><a href="#">تگ</a></div>
+          </div>
+          <div class="post-readmore">
+            <a href="{% url 'post_detail' post.slug  %}">بیشتر بخوانید</a>
+          </div>
+        </div>
+      </div>
+  </div>
+{% endblock %}
