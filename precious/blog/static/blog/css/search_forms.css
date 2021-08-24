@@ -51,7 +51,7 @@
 	cursor: pointer;
 }
 
-.tag-search-container .selected-tags > div:hover { background-color: #39ff14; }
+.tag-search-container .selected-tags > div:hover { background-color: #673ec1; }
 .tag-search-container .selected-tags > div:hover span {
 	transition: color 0.3s linear;
 	color: #42414d;
