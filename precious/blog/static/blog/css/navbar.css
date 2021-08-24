@@ -40,11 +40,11 @@ nav ul li {
 nav ul li:last-child { margin-right: auto; }
 
 nav ul li:last-child:hover { border-bottom: 3px solid transparent; }
-nav ul li:hover { border-bottom: 3px solid #39ff14; }
+nav ul li:hover { border-bottom: 3px solid #673ec1; }
 
 nav ul li a {
 	text-decoration: none;
 
-	color: #39ff14;
+	color: #673ec1;
 	font-size: 1.2em;
 }

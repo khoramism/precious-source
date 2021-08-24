@@ -54,7 +54,7 @@
 	color: #b1b1b3;
 	transition: color 0.3s linear;
 }
-.posts-container .post-card .post-whoWhen a:hover {	color: #39ff14; }
+.posts-container .post-card .post-whoWhen a:hover {	color: #673ec1; }
 .posts-container .post-card .post-rating {
 	display: inline-block;
 	float: right;
@@ -67,7 +67,7 @@
 	transition: color 0.3s linear;
 }
 .posts-container .post-card .post-rating i:hover {
-	color: #39ff14;;
+	color: #673ec1;;
 }
 
 .posts-container .post-card .post-summary {}
@@ -87,7 +87,7 @@
 	transition: background-color 0.3s linear;
 	cursor: pointer;
 }
-.posts-container .post-card .post-tags > div:hover { background-color: #39ff14; }
+.posts-container .post-card .post-tags > div:hover { background-color: #673ec1; }
 .posts-container .post-card .post-tags > div:hover  a {
 	transition: color 0.3s linear;
 	color: #42414d;
@@ -107,10 +107,10 @@
 }
 .posts-container .post-card .post-readmore a:hover {
 	text-decoration: underline;
-	color: #39ff14;
+	color: #673ec1;
 }
 .posts-container .post-card .post-readmore a::after {
 	content: " > ";
-	color: #39ff14;
+	color: #673ec1;
 	font-size: 11px;
 }

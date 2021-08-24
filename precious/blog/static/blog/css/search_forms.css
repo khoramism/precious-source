@@ -1,0 +1,64 @@
+.form-container {
+	width: 80%;
+	padding: 20px 50px;
+	margin: 50px auto;
+
+	border-radius: 8px;
+	-moz-box-shadow: 0 2px 6px rgba(28, 27, 24, 0.5);
+	-webkit-box-shadow: 0 2px 6px rgba(28, 27, 24, 0.5);
+	box-shadow: 0 2px 6px rgba(28, 27, 24, 0.5);
+	background-color: #38383d;
+}
+
+.tag-search-container, .word-search-container{
+	min-height: 70px;
+	padding: 10px 0;
+}
+
+.word-search-container input {
+	outline: none;
+	color: #fbfbfe;
+	font-family: "IRANSansWeb";
+	background-color: transparent;
+	border: none;
+	border-bottom: 3px solid #673ec1;
+}
+
+.form-container .search-label {
+	color: #fbfbfe;
+	float: right;
+	padding-left: 20px;
+}
+
+.form-container .dropdown-container {
+	float: right;
+	margin-left: 20px;
+	margin-bottom: 20px;
+}
+
+.tag-search-container .selected-tags {
+	display: inline-block;
+}
+
+.tag-search-container .selected-tags > div {
+	display: inline-block;
+	padding: 2px 7px;
+	margin-left: 10px;
+	margin-bottom: 5px;
+	border: 1px solid #b1b1b3;
+	border-radius: 20px;
+	transition: background-color 0.3s linear;
+	cursor: pointer;
+}
+
+.tag-search-container .selected-tags > div:hover { background-color: #673ec1; }
+.tag-search-container .selected-tags > div:hover span {
+	transition: color 0.3s linear;
+	color: #42414d;
+}
+.tag-search-container .selected-tags span {
+	color: #f9f9fa;
+	font-size: 13px;
+	text-decoration: none;
+	padding: 0 5px;
+}
