@@ -6,7 +6,7 @@ from .category import Category
 from ckeditor_uploader.fields import RichTextUploadingField
 from .langtag import LangTag
 from django.shortcuts import render, reverse
-
+from django.contrib.auth.models import User
 class Post(Base):
 	title = models.CharField(max_length=25)
 	
@@ -28,7 +28,11 @@ class Post(Base):
 	
 	langtag = models.ForeignKey(LangTag, on_delete=models.CASCADE, related_name='posts')
 
-	
+	author = models.ForeignKey(
+        User, on_delete=models.CASCADE, related_name="blog_posts")
+
+
+		
 	def __str__(self):
 		return self.title
 	

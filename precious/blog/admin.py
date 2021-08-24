@@ -7,6 +7,12 @@ from ckeditor.widgets import CKEditorWidget
 class PostAdminForm(forms.ModelForm):
     content = forms.CharField(widget=CKEditorWidget())
     #langtag = forms.MultipleChoiceField(widget=CustomCheckboxSelectMultiple, required=False)
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields['summary'].required = True
+        self.fields['content'].required = True
+        self.fields['title'].required = True
+        self.fields['url'].required = True
     class Meta:
         model = Post
         fields = '__all__'
@@ -23,6 +29,17 @@ class PostAdmin(admin.ModelAdmin):
 
 admin.site.register(Post, PostAdmin)
 
-admin.site.register(Comment)
+
+@admin.register(Comment)
+class CommentAdmin(admin.ModelAdmin):
+    list_display = ('name', 'body', 'post', 'created_on', 'active')
+    list_filter = ('active', 'created_on')
+    search_fields = ('name', 'email', 'body')
+    actions = ['approve_comments']
+
+    def approve_comments(self, request, queryset):
+        queryset.update(active=True)
+
+
 admin.site.register(Category)
 admin.site.register(LangTag)

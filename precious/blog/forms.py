@@ -1,7 +1,6 @@
 from django import forms
 from .models import *
-from ckeditor.fields import RichTextField
-
+from ckeditor.widgets import CKEditorWidget
 
 class PostForm(forms.ModelForm):
     title = forms.CharField(widget=forms.TextInput(),required=True, max_length=100)
@@ -11,4 +10,8 @@ class PostForm(forms.ModelForm):
         model  = Post
         fields = ('title','content',)
 
-
+class CommentForm(forms.ModelForm):
+    body = forms.CharField(widget=CKEditorWidget(config_name='comments'),required=True, max_length=2048)
+    class Meta:
+        model = Comment
+        fields = ('name', 'email', 'body')
