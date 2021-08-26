@@ -3,7 +3,11 @@ from .models import Post, Comment
 from .filters import PostFilter
 from django.http import HttpResponse
 from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
-from .forms import CommentForm
+from .forms import CommentForm, SearchForm
+from django.db.models import Q 
+# POSTGRESQL 
+from django.contrib.postgres.search import SearchVector, SearchQuery, SearchRank
+	
 def post_list(request, *args, **kwargs):
 	object_list = Post.objects.filter()
 
@@ -15,7 +19,20 @@ from .models import Post
 
 
 def post_list(request):
+	## WITHOUT THE POSTGRESQL VECTOR SEARCH
 	posts = Post.objects.filter(status='published').order_by('-created')
+	if 'search' in request.GET:
+		form = SearchForm(request.GET)
+		if form.is_valid():
+			cd = form.cleaned_data['search']
+			search_result = posts.filter(Q(title__icontains = cd ) | Q(summary__icontains = cd ) |Q(content__icontains= cd ))
+
+		else: 
+			search_result = ' مقاله ای یافت نشد'
+	else: 
+		form = SearchForm(request.GET)
+		search_result = ' مقاله ای یافت نشد'
+
 	all_posts_count = posts.count()
 	myFilter = PostFilter(request.GET, queryset=posts)
 	filtered = myFilter.qs	
@@ -30,35 +47,33 @@ def post_list(request):
 		# If page is out of range deliver last page of results
 		post_list = paginator.page(paginator.num_pages)
 
-	context = {'all_posts_count':all_posts_count,'page': page,'myFilter':myFilter,'filtered':filtered}
+	context = {'all_posts_count':all_posts_count,'page': page,'myFilter':myFilter,'filtered':filtered, 'search_result':search_result,'form':form }
 	return render(request, 'blog/post_list.html',context)
 
-	
-class PostList(generic.ListView):
-	queryset = Post.objects.filter(status=1).order_by('-created')
-	template_name = 'post_list.html'
 
 def post_detail(request, slug):
-    template_name = 'post_detail.html'
-    post = get_object_or_404(Post, slug=slug)
-    comments = post.comments.filter(active=True)
-    new_comment = None
-    # Comment posted
-    if request.method == 'POST':
-        comment_form = CommentForm(data=request.POST)
-        if comment_form.is_valid():
+	template_name = 'blog/post_detail.html'
+	post = get_object_or_404(Post, slug=slug)
+	comments = post.comments.filter(active=True)
+	new_comment = None
+	# Comment posted
+	if request.method == 'POST':
+		comment_form = CommentForm(data=request.POST)
+		if comment_form.is_valid():
 
-            # Create Comment object but don't save to database yet
-            new_comment = comment_form.save(commit=False)
-            # Assign the current post to the comment
-            new_comment.post = post
-            # Save the comment to the database
-            new_comment.save()
-    else:
-        comment_form = CommentForm()
+			# Create Comment object but don't save to database yet
+			new_comment = comment_form.save(commit=False)
+			# Assign the current post to the comment
+			new_comment.post = post
+			# Save the comment to the database
+			new_comment.save()
+	else:
+		comment_form = CommentForm()
 
-    return render(request, template_name, {'post': post,
-                                           'comments': comments,
-                                           'new_comment': new_comment,
-                                           'comment_form': comment_form})
+	return render(request, template_name, {'post': post,
+										   'comments': comments,
+										   'new_comment': new_comment,
+										   'comment_form': comment_form})
 
+def search_forms(request):
+	return render(request, 'blog/search_forms.html',{})
