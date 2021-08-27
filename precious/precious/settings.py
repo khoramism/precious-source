@@ -51,6 +51,8 @@ INSTALLED_APPS = [
     'ckeditor',
     'ckeditor_uploader',
     'crispy_forms',
+    # API CONFIG 
+    "graphene_django",
 ]
 
 MIDDLEWARE = [
@@ -204,3 +206,9 @@ CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 
 CKEDITOR_FILENAME_GENERATOR = 'utils.get_filename'
+
+
+# API CONFIG 
+GRAPHENE = {
+    "SCHEMA": "precious.schema.schema"
+}

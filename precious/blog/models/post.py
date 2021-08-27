@@ -9,8 +9,6 @@ from django.shortcuts import render, reverse
 from django.contrib.auth.models import User
 class Post(Base):
 	title = models.CharField(max_length=25)
-	
-	name  = models.CharField(max_length=25)
 
 	slug = models.SlugField(max_length=200, unique=True)
 

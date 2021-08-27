@@ -13,7 +13,6 @@ class PostFilter(django_filters.FilterSet):
     class Meta:
         model = Post
         fields = {'title':['icontains'],
-                'name':['icontains'],
                 'stars': ['gt', 'lt'],
                 'summary':['icontains'],
                 'cat':['exact'],
