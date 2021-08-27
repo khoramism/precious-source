@@ -1,22 +1,37 @@
-.range-container {
-	display: none;
-	width: 300px;
-	height: 50px;
-	background-color: pink;
+.rating-filter-container {
+	width: 100%;
+}
+
+.rating-filter-container > div {
+
+}
+
+.rating-filter-container .search-label p {  }
+
+.rating-filter-container .range-slider-container {
+	display: inline-block;
+	margin: 0 1em;
 	direction: ltr;
 }
 
-.range-container .range-rail {
-	width: 80%;
+.rating-filter-container .range-slider-container > span {
+	color: #f9f9fa;
+	font-size: 1.1em;
+}
+
+.rating-filter-container .range-slider-container .range-rail {
+	width: 12em;
 	height: 5px;
-	margin: 0 auto;
+	display: inline-block;
+	margin: 0 10px;
 	position: relative;
 	top: 50%;
 	transform: translateY(-50%);
-	background-color: black;
+	border-radius: 3px;
+	background-color: #f9f9fa;
 }
 
-.range-container .range-rail .range-slider {
+.rating-filter-container .range-slider-container .range-rail .range-slider {
 	width: 20px;
 	height: 20px;
 
@@ -25,8 +40,37 @@
 	transform: translateY(50%);
 
 	user-select: none;
+	cursor: pointer;
 	z-index: 1;
 	border-radius: 50%;
 
-	background-color: red;
+	background-color: #673ec1;
+}
+
+.rating-filter-container .range-input-container {
+	display: inline-block;
+	color:  #f9f9fa;
+}
+
+.rating-filter-container .range-input-container input {
+	width: 3.5em;
+	outline: none;
+	color: #fbfbfe;
+	text-align: center;
+	font-family: "IRANSansWeb";
+	background-color: transparent;
+	border: none;
+	border-bottom: 3px solid #673ec1;
+}
+
+/* Chrome, Safari, Edge, Opera */
+.rating-filter-container .range-input-container input::-webkit-outer-spin-button,
+.rating-filter-container .range-input-container input::-webkit-inner-spin-button {
+	-webkit-appearance: none;
+	margin: 0;
+}
+
+/* Firefox */
+.rating-filter-container .range-input-container input[type=number] {
+	-moz-appearance: textfield;
 }
