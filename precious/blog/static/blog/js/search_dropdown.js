@@ -1,17 +1,8 @@
 $( document ).ready(function() {
 	"use strict";
 
-	let dropdown_options = [
-		{
-			title: "lang",
-			options: ["Python", "JavaScript", "PHP", "Laravel", "C", "C++", "Go", "Java"]
-		},
-		{
-			title: "category",
-			options: ["Web Development", "Artificial Intelligence", "Machine Learning", "IOT"]
-		}
-	]
-	renderDropdownOptions(dropdown_options);
+	
+	renderDropdownOptions(DROPDOWN_OPTIONS);
 	function renderDropdownOptions(dropdownArr) {
 		let parent, inner, icon, id;
 		// HTML Sample:
