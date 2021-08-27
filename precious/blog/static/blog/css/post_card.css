@@ -7,28 +7,36 @@
 	justify-content: space-evenly;
 	flex-wrap: wrap;
 
-	padding: 30px 0;
+	margin: 2em 0;
 }
 
 /* Each card */
 .posts-container .post-card {
-	flex-basis: 300px;
-	margin-bottom: 30px;
+	flex-basis: 20em;
+
+	margin: 0 1em 1.5em 1em;
 
 	border-radius: 8px;
 	overflow: hidden;
 	box-shadow: 0 1px 4px 0 rgba(12, 12, 13, 0.1);
-	-moz-box-shadow: 0 1px 4px 0 rgba(12, 12, 13, 0.1);
-	-webkit-box-shadow: 0 1px 4px 0 rgba(12, 12, 13, 0.1);
 	background-color: #42414d;
 }
 
 /* Card Banner */
-.posts-container .post-card .post-img {}
-.posts-container .post-card .post-img img { width: 100%; }
+.posts-container .post-card .post-img {
+	height: 40%;
+	display: flex;
+}
+.posts-container .post-card .post-img img {
+	width: 100%;
+}
 
 /* The info below banner */
-.posts-container .post-card .post-info { padding: 20px 15px; }
+.posts-container .post-card .post-info {
+	height: 55%;
+	padding: 0 1em;
+	margin-top: 5%;
+}
 .posts-container .post-card .post-info > div { margin-bottom: 20px; }
 .posts-container .post-card .post-title {
 	width: 100%;
@@ -36,34 +44,36 @@
 }
 .posts-container .post-card .post-title > p {
 	color: #f9f9fa;
-	font-size: 18px;
+	font-size: 1.3rem;
 }
 
 .posts-container .post-card .post-metadata {
 	width: 100%;
 	display: inline-block;
 	color: #b1b1b3;
-	font-size: 12px;
+	font-size: 0.7rem;
 }
 .posts-container .post-card .post-whoWhen {
-	display: inline-block;
 	float: right;
-	margin-left: 15px;
+	margin-left: 0.5em;
+	margin-bottom: 0.5em;
 }
 .posts-container .post-card .post-whoWhen a {
 	color: #b1b1b3;
 	transition: color 0.3s linear;
 }
-.posts-container .post-card .post-whoWhen a:hover {	color: #673ec1; }
+.posts-container .post-card .post-whoWhen a:hover {	color: #f9f9fa; }
 .posts-container .post-card .post-rating {
-	display: inline-block;
 	float: right;
 	direction: ltr;
-
+	padding: 0 0.5em;
+	color: #673ec1;
+	font-size: 0.8rem;
+	border-radius: 4px;
+	background-color: #b1b1b3;
 }
 .posts-container .post-card .post-rating i {
 	cursor: pointer;
-	color: #b1b1b3;
 	transition: color 0.3s linear;
 }
 .posts-container .post-card .post-rating i:hover {
@@ -79,7 +89,7 @@
 .posts-container .post-card .post-tags {}
 .posts-container .post-card .post-tags > div {
 	display: inline-block;
-	padding: 5px 10px;
+	padding: 0.1em 0.5em;
 	margin-left: 2px;
 	margin-bottom: 5px;
 	border: 1px solid #b1b1b3;
@@ -88,29 +98,29 @@
 	cursor: pointer;
 }
 .posts-container .post-card .post-tags > div:hover { background-color: #673ec1; }
-.posts-container .post-card .post-tags > div:hover  a {
-	transition: color 0.3s linear;
-	color: #42414d;
-}
+
 .posts-container .post-card .post-tags a {
 	color: #f9f9fa;
-	font-size: 13px;
+	font-size: 0.8em;
 	text-decoration: none;
 }
 
+.posts-container .post-card .post-readmore {
+	width: 100%;
+	display: inline-block;
+}
+
 .posts-container .post-card .post-readmore a {
-	font-size: 13px;
-	display: block;
-	text-align: left;
+	float: left;
+	font-size: 0.8em;
 	text-decoration: none;
 	color: #f9f9fa;
+	border-bottom: 1px solid transparent;
 }
 .posts-container .post-card .post-readmore a:hover {
-	text-decoration: underline;
-	color: #673ec1;
+	border-bottom: 1px solid #673ec1;	
 }
 .posts-container .post-card .post-readmore a::after {
 	content: " > ";
 	color: #673ec1;
-	font-size: 11px;
 }

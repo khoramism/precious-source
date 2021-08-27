@@ -1,9 +1,9 @@
 $(document).ready(function() {
 	"use strict";
 
-	let rail      = $(".range-container .range-rail");
-	let sliderMin = $(".range-container #range-slider-min");
-	let sliderMax = $(".range-container #range-slider-max");
+	let rail      = $(".range-slider-container .range-rail");
+	let sliderMin = $(".range-slider-container #range-slider-min");
+	let sliderMax = $(".range-slider-container #range-slider-max");
 	let draggedSlider;
 	let mouseClickX, delta, initLeft, maxLeft, targetLeft;
 	let sliderMinLeft, sliderMaxLeft;
@@ -13,7 +13,7 @@ $(document).ready(function() {
 	sliderMax.css({ 'left': rail.width() - overflowX });
 	sliderMin.css({ 'left': -overflowX });
 
-	$(".range-container .range-slider").bind('mousedown', function(e){		
+	$(".range-slider-container .range-slider").bind('mousedown', function(e){		
 		draggedSlider = this.id === "range-slider-min" ? sliderMin : sliderMax;
 
 		// If either of the sliders is dragged (clicked)
