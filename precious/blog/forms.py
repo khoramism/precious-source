@@ -20,3 +20,4 @@ class CommentForm(forms.ModelForm):
 class SearchForm(forms.Form):
     search = forms.CharField(required=False, label="")
     search.widget = forms.TextInput(attrs={'placeholder':"تایپ کنید: ",'name': 'email'})
+

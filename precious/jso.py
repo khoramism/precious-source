@@ -1,0 +1,40 @@
+import json 
+
+techs = [
+    'Python',
+    'Java',
+    'JavaScript', 
+    'Php',
+    'Wordpress',
+    'BootStrap',
+    "Html & Css",
+    'SQLite',
+    'MySQL',
+    'PostgreSQL',
+    'C#',
+    'Git',
+    'Docker',
+    'Sass',
+    'Scss',
+    'R',
+    'Kotlin',
+    'Go',
+    'C++',
+    'C',
+    'JSON(API)',
+    'Ajax',
+    'AngularJS',
+    "React",
+    'JQuery',
+    'Vue',
+    'Node.js',
+    'Raspberrypi',
+    'ASP'
+    'Django',
+    'Express.js',
+    'Flask',
+    'CherryPy',
+    'GraphQL',
+]
+with open('blog/cat.json', 'a+') as cat:
+    json.dump(cats, cat, indent=4, sort_keys=True)
