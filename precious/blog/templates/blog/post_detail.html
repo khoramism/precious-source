@@ -29,17 +29,13 @@
               <p>توسط <a href="#" class="post-author">{{ post.author }}</a> در <span class="post-date">{{ post.created_on}}</span></p>
             </div>
             <div class="post-rating">
-              <!--
-                Full star  => fas fa-star
-                Half star  => fa-star-half-alt
-                Empty star => far fa-star
-              -->
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star-half-alt"></i>
-              <i class="far fa-star"></i>
-              <i class="far fa-star"></i>
-              <i class="far fa-star"></i>
-            </div>
+                <!--
+                  Full star  => fas fa-star
+                  Half star  => fa-star-half-alt
+                  Empty star => far fa-star
+                -->
+                <p><i class="fas fa-star"></i> <span>{{ post.stars }}</span></p>
+              </div>
           </div>
           <div class="post-summary">
             {{ post.media }}

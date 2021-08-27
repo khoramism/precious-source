@@ -1,13 +1,11 @@
 footer {
     box-shadow: 0 -3px 6px rgba(0,0,0,0.2);
-	-moz-box-shadow: 0 -3px 6px rgba(0,0,0,0.2);
-    -webkit-box-shadow: 0 -3px 6px rgba(0,0,0,0.2);
 	background-color: #38383d;
 
 	/*height: 300px;*/
 	display: flex;
 	flex-direction: row;
-	padding: 30px;
+	padding: 1.5em;
 }
 
 
@@ -24,12 +22,12 @@ footer > div ul {
 footer > div ul li { margin-bottom: 0.8em; }
 footer > div ul li:first-child {
 	margin-bottom: 1em;
-	font-size: 1.5em;
+	font-size: 1.2em;
 	color: #673ec1;
 }
 
 footer > div ul li a {
-	font-size: 1.2em;	
+	font-size: 1em;	
 	color: #f8f8f8;
 	text-decoration: none;
 }
