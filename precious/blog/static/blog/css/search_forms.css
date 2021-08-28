@@ -1,3 +1,5 @@
+#completed-search-form { display: none; }
+
 .form-container {
 	width: 80%;
 	padding: 2em 3em;
@@ -8,9 +10,10 @@
 	background-color: #38383d;
 }
 
-.tag-search-container, .word-search-container{
-	min-height: 5em;
-	padding: 1em 0;
+.submit-container, .rating-filter-container, .tag-search-container, .word-search-container{
+	width: 100%;
+	display: inline-block;
+	margin: 1em 0;
 }
 
 .word-search-container input {
@@ -61,4 +64,22 @@
 	font-size: 13px;
 	text-decoration: none;
 	padding: 0 5px;
+}
+
+.form-container .submit-container button {
+	margin: 0 auto;
+	display: block;
+	padding: 0.5em 1.2em;
+	border-radius: 20px;
+	border: 2px solid #673ec1;
+	color: #f9f9fa;
+	font-size: 0.9em;
+	font-family: "IRANSansWeb";
+	background-color: #673ec1;
+	cursor: pointer;
+	transition: all 0.1s linear;
+}
+
+.form-container .submit-container button:hover {
+	padding: 0.5em 1.5em;
 }

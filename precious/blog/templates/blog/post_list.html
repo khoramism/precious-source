@@ -40,8 +40,20 @@
 </div>
 <div class="form-container">
   <form method="GET">
+    <div id="completed-search-form">
+      <span id="completed-search-form__word"></span>
+      <span id="completed-search-form__lang"></span>
+      <span id="completed-search-form__category"></span>
+      <span id="completed-search-form__stars"></span>
+      <span id="completed-search-form__submit"></span>
+    </div>
 
-    <div id="lang-tag-search" class="tag-search-container">
+    <div class="word-search-container">
+      <label class="search-label" for="word-search">عنوان/توضیحات شامل:</label>
+      <input placeholder="تایپ کنید:" type="text" name="words" id="word-search">
+    </div>
+
+    <div id="tag-search__lang" class="tag-search-container">
       <div class="search-label">
         <p>زبان/تکنولوژی مورد نظر را انتخاب کنید: </p>
       </div>
@@ -54,6 +66,7 @@
         </div>
       </div>
       <div id="selected-tags__lang" class="selected-tags">
+        <!-- icon lang kenaresh bashe vaghti hover mishe avaz she be x -->
         <!-- <div>
           <span><i class="fas fa-times-circle"></i></span>
           <span>tag name</span>
@@ -61,7 +74,7 @@
       </div>
     </div>
 
-    <div id="category-tag-search" class="tag-search-container">
+    <div id="tag-search__categort" class="tag-search-container">
       <div class="search-label">
         <p>دسته&zwnj;بندی مورد نظر را انتخاب کنید: </p>
       </div>
@@ -74,6 +87,7 @@
         </div>
       </div>
       <div id="selected-tags__category" class="selected-tags">
+        <!-- icon lang kenaresh bashe vaghti hover mishe avaz she be x -->
         <!-- <div>
           <span><i class="fas fa-times-circle"></i></span>
           <span>tag name</span>
@@ -96,14 +110,19 @@
       </div>
 
       <div class="range-input-container">
-        <span>از:</span>
-        <input type="number" step="1" min="0" name="min-stars">
-        <span>تا:</span>
-        <input type="number" step="1" min="1" name="max-stars">
+        <label for="range-slider__min">از:</label>
+        <input type="number" step="1" min="0" name="min-rating" id="range-slider__min">
+        <label for="range-slider__max">تا:</label>
+        <input type="number" step="1" min="1" name="max-rating" id="range-slider__max">
       </div>
     </div>
 
+    <div class="submit-container">
+      <button type="submit">جست&zwnj;وجو</button>
+    </div>
+
   </form>
+
 </div>
 
 <div class="row">
@@ -138,6 +157,7 @@
 <script src="{% static 'blog/js/dropdown_list.js' %}"></script>
 <script src="{% static 'blog/js/search_dropdown.js' %}"></script>
 <script src="{% static 'blog/js/search_rangeSlider.js' %}"></script>
+<script type="text/javascript" src="{% static 'blog/js/submit_form.js' %}"></script>
 {% if post_list.has_other_pages %}
 <nav aria-label="Page navigation conatiner"></nav>
 <ul class="pagination justify-content-center">

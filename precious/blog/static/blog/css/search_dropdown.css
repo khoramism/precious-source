@@ -65,6 +65,6 @@
 
 .dropdown .dropdown-options-container .dropdown-options:last-child { border-bottom: none; }
 
-.dropdown .dropdown-options-container .dropdown-options-selected {
+.dropdown .dropdown-options-container .dropdown-options.selected {
 	background-color: #572eb1;
 }
