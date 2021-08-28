@@ -1,8 +1,9 @@
+// import dropdown_options from './dropdown_list.js';
+
 $( document ).ready(function() {
 	"use strict";
 
-	
-	renderDropdownOptions(DROPDOWN_OPTIONS);
+	renderDropdownOptions(dropdown_options);
 	function renderDropdownOptions(dropdownArr) {
 		let parent, inner, icon, id;
 		// HTML Sample:
@@ -134,12 +135,12 @@ $( document ).ready(function() {
 		let dropdowns = $(".dropdown .dropdown-options-container");
 
 		for (const section of selected) {
-			$(dropdowns[secId]).children(".dropdown-options").removeClass("dropdown-options-selected");
+			$(dropdowns[secId]).children(".dropdown-options").removeClass("selected");
 			$(dropdowns[secId]).children(".dropdown-options").children("p").children("i").removeClass("fas fa-check-square");
 			$(dropdowns[secId]).children(".dropdown-options").children("p").children("i").addClass("far fa-square");
 			for (const item of section) {
 				$(dropdowns[secId]).children("#dropdown-option__" + toKebabCase(item))
-					.addClass("dropdown-options-selected");
+					.addClass("selected");
 				$(dropdowns[secId]).children("#dropdown-option__" + toKebabCase(item)).children("p").children("i")
 					.removeClass("far fa-square");
 				$(dropdowns[secId]).children("#dropdown-option__" + toKebabCase(item)).children("p").children("i")

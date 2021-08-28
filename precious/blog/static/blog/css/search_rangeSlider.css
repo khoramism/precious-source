@@ -2,12 +2,6 @@
 	width: 100%;
 }
 
-.rating-filter-container > div {
-
-}
-
-.rating-filter-container .search-label p {  }
-
 .rating-filter-container .range-slider-container {
 	display: inline-block;
 	margin: 0 1em;
@@ -61,6 +55,11 @@
 	background-color: transparent;
 	border: none;
 	border-bottom: 3px solid #673ec1;
+	transition: width 0.1s linear;
+}
+
+.rating-filter-container .range-input-container input:focus {
+	width: 4em;
 }
 
 /* Chrome, Safari, Edge, Opera */
