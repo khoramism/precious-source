@@ -12,6 +12,14 @@
 	background-color: #673ec1;
 }
 
+.dropdown .dropdown-header input {
+	border: none;
+	outline: none;
+	color: #f9f9fa;
+	font-family: "IRANSansWeb";
+	background-color: transparent;
+}
+
 .dropdown .dropdown-header-radiusTop {
 	border-radius: 8px;
 	border-bottom-left-radius: 0px;
@@ -27,6 +35,8 @@
 
 .dropdown .dropdown-options-container {
 	width: 100%;
+	max-height: 15em;
+	overflow-y: scroll;
 	position: absolute;
 	padding: 5px 0px;
 	z-index: 3;
@@ -47,6 +57,11 @@
 	padding: 0.5em 1em;
 	border-bottom: 1px solid #b1b1b3;
 	transition: background-color 0.3s linear;
+}
+
+.dropdown .dropdown-options-container p.dropdown-noresult {
+	display: none;
+	padding: 0.5em 1em;
 }
 
 .dropdown .dropdown-options-container .dropdown-options:hover {
