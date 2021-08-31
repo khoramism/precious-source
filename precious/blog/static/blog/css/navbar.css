@@ -1,4 +1,4 @@
-nav {
+#main-navbar {
 	height: 4.5rem;
 
 	display: flex;
@@ -9,7 +9,7 @@ nav {
 	background-color: #38383d;
 }
 
-nav ul {
+#main-navbar ul {
 	list-style: none;
 	padding: 0;
 	margin: 0;
@@ -21,7 +21,7 @@ nav ul {
 	height: 100%;
 }
 
-nav ul li {
+#main-navbar ul li {
 	display: flex;
 	align-items: center;
 
@@ -35,14 +35,76 @@ nav ul li {
 	-moz-transition: all 0.3s ease-out;
 }
 
-nav ul li:last-child { margin-right: auto; }
+#main-navbar ul li:last-child { margin-right: auto; }
 
-nav ul li:last-child:hover { border-bottom: 3px solid transparent; }
-nav ul li:hover { border-bottom: 3px solid #673ec1; }
+#main-navbar ul li:last-child:hover { border-bottom: 3px solid transparent; }
+#main-navbar ul li:hover { border-bottom: 3px solid #673ec1; }
 
-nav ul li a {
+#main-navbar ul li a, nav ul li i {
 	text-decoration: none;
 
 	color: #976ef1;
 	font-size: 1.2em;
+}
+
+#main-navbar li.active-item {
+	border-bottom: 3px solid #673ec1;
+}
+
+#main-navbar .navbar-search { padding: 0; }
+
+#main-navbar .navbar-search form {
+	height: 100%;
+	display: flex;
+	align-items: center;
+	cursor: default;
+}
+
+#main-navbar .navbar-search-button,
+#main-navbar .navbar-search-input,
+#main-navbar .navbar-search-submit { float: right; }
+
+#main-navbar .navbar-search-button {
+	width: 3rem;
+	padding: 0;
+	height: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	cursor: pointer;
+}
+
+#main-navbar .navbar-search .navbar-search-input {
+	display: none;
+	height: 70%;
+	padding-left: 1em;
+}
+
+#main-navbar .navbar-search .navbar-search-input input {
+	height: 100%;
+	background-color: transparent;
+	outline: none;
+	border: none;
+
+	color: #f9f9fa;
+	font-family: "IRANSansWeb";
+	font-size: 1.2em;
+}
+
+#main-navbar .navbar-search .navbar-search-submit {
+	display: none;
+	height: 70%;
+}
+
+#main-navbar .navbar-search .navbar-search-submit button {
+	display: flex;
+	align-items: center;
+	cursor: pointer;
+	height: 100%;
+	border-radius: 0;
+	color: #f9f9fa;
+	font-family: "IRANSansWeb";
+	font-size: 1em;
+	border: none;
+	background-color: transparent;
 }

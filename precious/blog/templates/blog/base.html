@@ -11,13 +11,13 @@
 	<link href="{% static 'blog/css/fonts.css' %}" type="text/css" rel="stylesheet">
 	<link href="{% static 'blog/css/navbar.css' %}" type="text/css"  rel="stylesheet">
 	<link href="{% static 'blog/css/footer.css' %}" type="text/css" rel="stylesheet">
-	<link href="{% static 'blog/lib/fontawesome-5.15.3/css/all.min.css' %}" type="text/css" rel="stylesheet">
+	<link href="{% static 'blog/lib/fontawesome-pro-5.15.3/css/all.min.css' %}" type="text/css" rel="stylesheet">
 
 	<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 
 </head>
 <body>
-	<nav>
+	<nav id="main-navbar">
 		<ul>
 			<li>
 				<a href="#">خانه</a>
@@ -27,6 +27,22 @@
 			</li>
 			<li>
 				<a href="#">کانتریبیوت</a>
+			</li>
+			<li class="navbar-search">
+				<form method="GET" action="#">
+					<div class="navbar-search-button">
+						<i class="far fa-search search-icon"></i>
+						<i class="fal fa-times close-icon" style="display: none;"></i>
+					</div>
+					<div class="navbar-search-input">
+						<input type="text" name="navbar-search" placeholder="تایپ کنید:">
+					</div>
+					<div class="navbar-search-submit">
+						<button type="submit" disabled>
+							<i class="far fa-search"></i>
+						</button>
+					</div>
+				</form>
 			</li>
 			<li>
 				<!-- <img src="#"> -->
@@ -92,5 +108,6 @@
 		</div>
 		
 	</footer>
+	<script type="text/javascript" src="{% static 'blog/js/navbar.js' %}"></script>
 </body>
 </html>
