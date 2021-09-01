@@ -10,7 +10,7 @@
 	background-color: #38383d;
 }
 
-.submit-container, .rating-filter-container, .tag-search-container, .word-search-container{
+.form-message-container, .submit-container, .rating-filter-container, .tag-search-container, .word-search-container{
 	width: 100%;
 	display: inline-block;
 	margin: 1em 0;
@@ -82,4 +82,12 @@
 
 .form-container .submit-container button:hover {
 	padding: 0.5em 1.5em;
+}
+
+.form-message-container {
+	display: none;
+}
+
+.form-message-container p {
+	color: #f03;
 }
