@@ -27,7 +27,7 @@
 	</div>
 </div>
 <br>
-
+{{myform}}
 <div class="form-container">
   <form method="GET">
     <div id="completed-search-form">
@@ -44,10 +44,12 @@
       <div class="dropdown-container">
         <div class="dropdown">
           <div class="dropdown-header">
+            
             <input id="tag-search-input__lang" type="text" name="tag-search__categort" placeholder="تایپ کنید:">
             <i class="fas fa-sort-down"></i>
           </div>
           <div id="dropdown__lang" class="dropdown-options-container en">
+            {{myform.langtags}}
             <p class="dropdown-noresult">نتیجه&zwnj;ای یافت نشد.</p>
           </div>
         </div>
@@ -66,6 +68,7 @@
             <i class="fas fa-sort-down"></i>
           </div>
           <div id="dropdown__category" class="dropdown-options-container en">
+            {{ myform.cats }}
             <p class="dropdown-noresult">نتیجه&zwnj;ای یافت نشد.</p>
           </div>
         </div>
@@ -81,6 +84,7 @@
 
     <div class="rating-filter-container">
       <div class="search-label">
+        {{ myform.stars }}
         <p>تعداد ستاره در گیت هاب: </p>
       </div>
 

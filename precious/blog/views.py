@@ -3,7 +3,7 @@ from .models import Post, Comment
 from .filters import PostFilter
 from django.http import HttpResponse
 from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
-from .forms import CommentForm, SearchForm
+from .forms import CommentForm, SearchForm,TableSearchForm
 from django.db.models import Q 
 # POSTGRESQL 
 from django.contrib.postgres.search import SearchVector, SearchQuery, SearchRank
@@ -36,6 +36,7 @@ def post_list(request):
 	all_posts_count = posts.count()
 	myFilter = PostFilter(request.GET, queryset=posts)
 	filtered = myFilter.qs	
+	# PAGINGATION
 	paginator = Paginator(filtered, 3)  # 3 posts in each page
 	page = request.GET.get('page')
 	try:
@@ -47,7 +48,26 @@ def post_list(request):
 		# If page is out of range deliver last page of results
 		post_list = paginator.page(paginator.num_pages)
 
-	context = {'all_posts_count':all_posts_count,'page': page,'myFilter':myFilter,'filtered':filtered, 'search_result':search_result,'form':form }
+
+
+	
+	if request.method == 'POST':
+		myform = TableSearchForm(request.POST)
+		if myform.is_valid():
+			cats = form.cleaned_data.get('cats')
+			langtags = form.cleaned_data.get('langtags')
+			stars = form.cleaned_data.get('stars')
+			# do something with your results
+			#table_search_results = posts.filter(Q(title__icontains = cd ) | Q(summary__icontains = cd ) |Q(content__icontains= cd ))
+			print(stars)
+			print(langtags)
+			print(cats)
+	else:
+		myform = TableSearchForm
+
+	
+
+	context = {'all_posts_count':all_posts_count,'page': page,'myFilter':myFilter,'filtered':filtered, 'search_result':search_result,'form':form , 'myform':myform}
 	return render(request, 'blog/post_list.html',context)
 
 
