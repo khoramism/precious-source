@@ -35,6 +35,26 @@ techs = [
     'Flask',
     'CherryPy',
     'GraphQL',
+    'TensorFlow',
+    'Pandas',
+    'Numpy',
+    'PyTorch',
+    'Keras',
+    'Theano',
+    'MatPlotLib',
+    'SciPy',
+    'PyGame',
+    'BS4',
+    'Pillow',
+    'Meteor',
+    'Next.js',
+    'Ionic',
+    'Winjs',
+    'Selenium',
+    'OpenCV',
+    "Dojo",
+    'Velocity.js',
+    
 ]
 with open('blog/cat.json', 'a+') as cat:
     json.dump(cats, cat, indent=4, sort_keys=True)
