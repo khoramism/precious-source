@@ -10,7 +10,7 @@
 	background-color: #38383d;
 }
 
-.submit-container, .rating-filter-container, .tag-search-container, .word-search-container{
+.form-message-container, .submit-container, .rating-filter-container, .tag-search-container, .word-search-container{
 	width: 100%;
 	display: inline-block;
 	margin: 1em 0;
@@ -37,11 +37,11 @@
 	margin-bottom: 1em;
 }
 
-.tag-search-container .selected-tags {
+.tag-search-container .selected-tags-container {
 	display: inline-block;
 }
 
-.tag-search-container .selected-tags > div {
+.tag-search-container .selected-tags-container > div.selected-tag {
 	display: inline-block;
 	padding: 2px 7px;
 	margin-left: 10px;
@@ -52,14 +52,14 @@
 	cursor: pointer;
 }
 
-.tag-search-container .selected-tags > div.en {
+.tag-search-container .selected-tags-container > div.selected-tag.en {
 	direction: ltr;
 	text-align: left;
 }
 
-.tag-search-container .selected-tags > div:hover { background-color: #673ec1; }
+.tag-search-container .selected-tags-container > div.selected-tag:hover { background-color: #673ec1; }
 
-.tag-search-container .selected-tags span {
+.tag-search-container .selected-tags-container span {
 	color: #f9f9fa;
 	font-size: 13px;
 	text-decoration: none;
@@ -82,4 +82,12 @@
 
 .form-container .submit-container button:hover {
 	padding: 0.5em 1.5em;
+}
+
+.form-message-container {
+	display: none;
+}
+
+.form-message-container p {
+	color: #f03;
 }

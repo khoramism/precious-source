@@ -9,6 +9,10 @@ $(document).ready(function() {
   let sliderMinLeft, sliderMaxLeft;
   let overflowX = sliderMax.width() / 2;
 
+  // const MOST_STARRED = 400e3;
+  // const STAR_STEP    = 2000;
+  // const WIDTH_STEP   = ( STAR_STEP / MOST_STARRED ) * rail.width();  
+
   // Initializing left property of sliders
   sliderMax.css({ 'left': rail.width() - overflowX });
   sliderMin.css({ 'left': -overflowX });
@@ -24,7 +28,7 @@ $(document).ready(function() {
     else sliderMax.css({ "z-index": "1" });
     
     // mouseClickX is the x axis of mouseClick
-    // initLeft is where slider was from the beginnig
+    // initLeft is where the slider was from the beginnig
     // maxLeft is the maximum left sliders can have
     mouseClickX = e.clientX;
     initLeft    = parseInt(draggedSlider.css('left'));

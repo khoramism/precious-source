@@ -3,7 +3,8 @@
 }
 
 .rating-filter-container .range-slider-container {
-	display: inline-block;
+	display: none;
+	/*display: inline-block;*/
 	margin: 0 1em;
 	direction: ltr;
 }
@@ -72,4 +73,9 @@
 /* Firefox */
 .rating-filter-container .range-input-container input[type=number] {
 	-moz-appearance: textfield;
+}
+
+.rating-filter-container .range-input-container.error input {
+	border-bottom: 3px solid #f03;
+	color: #f03;
 }
