@@ -98,7 +98,7 @@ class SearchForm(forms.Form):
     search.widget = forms.TextInput(attrs={'placeholder':"تایپ کنید: ",'name': 'email'})
 
 class TableSearchForm(forms.Form):
-    cats = forms.MultipleChoiceField(label="", choices=CATS, widget=forms.CheckboxSelectMultiple(attrs = {'class':"dropdown-options-container en" ,'id':"dropdown__lang"}))
-    langtags = forms.MultipleChoiceField(label="", choices=LANGTAGS, widget=forms.CheckboxSelectMultiple(), )
+    cats = forms.MultipleChoiceField(label="", choices=CATS, widget=forms.CheckboxSelectMultiple(attrs = {'class':"dropdown-options-container en" ,'id':"dropdown__cats"}))
+    langtags = forms.MultipleChoiceField(label="", choices=LANGTAGS, widget=forms.CheckboxSelectMultiple(attrs = {'class':"dropdown-options-container en" ,'id':"dropdown__lang"}), )
     stars = forms.IntegerField(label="ستاره ها")
     
