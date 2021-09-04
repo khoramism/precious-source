@@ -15,7 +15,7 @@ clone the project first using
 then you need to install all the dependencies 
 <br>
 <br>
-```pip install -r req.txt```
+```pip install -r requirements.txt```
 <br>
 <br>
 now simply you need to simply run the server 
