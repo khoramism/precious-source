@@ -1,22 +1,16 @@
 from django.shortcuts import render, reverse,get_object_or_404
-from .models import Post, Comment
-from .filters import PostFilter
 from django.http import HttpResponse
+from django.utils import messages
 from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
-from .forms import CommentForm, SearchForm,TableSearchForm
 from django.db.models import Q 
+from django.views import generic
 # POSTGRESQL 
 from django.contrib.postgres.search import SearchVector, SearchQuery, SearchRank
-	
-def post_list(request, *args, **kwargs):
-	object_list = Post.objects.filter()
 
-
-
-
-from django.views import generic
-from .models import Post
-
+# Internal imports 
+from .models import Post, Comment
+from .filters import PostFilter
+from .forms import CommentForm, SearchForm,TableSearchForm
 
 def post_list(request):
 	## WITHOUT THE POSTGRESQL VECTOR SEARCH
@@ -97,3 +91,12 @@ def post_detail(request, slug):
 
 def search_forms(request):
 	return render(request, 'blog/search_forms.html',{})
+
+class CreatePostView(generic.CreateView):
+	model  = Post
+	form_class = PostForm
+	template_name = 'blog/post_create.html'
+
+    def get_success_url(self, *args):
+        messages.success(
+            self.request, _("حالا شما جوین شدین. سعی کنین وارد بشین و دیگه تمومممممممممممممممه!!")

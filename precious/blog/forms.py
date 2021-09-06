@@ -1,6 +1,8 @@
 from django import forms
 from .models import *
 from ckeditor.widgets import CKEditorWidget
+from django.core.exceptions import ValidationError
+
 '''
 class PostForm(forms.ModelForm):
     title = forms.CharField(widget=forms.TextInput(),required=True, max_length=100)
@@ -102,3 +104,24 @@ class TableSearchForm(forms.Form):
     langtags = forms.MultipleChoiceField(label="", choices=LANGTAGS, widget=forms.CheckboxSelectMultiple())
     stars = forms.IntegerField(label="ستاره ها")
     
+class InsertionForm(forms.ModelForm):
+    cats = forms.MultipleChoiceField(label="", choices=CATS, widget=forms.CheckboxSelectMultiple())
+    langtags = forms.MultipleChoiceField(label="", choices=LANGTAGS, widget=forms.CheckboxSelectMultiple())
+    your_email = forms.EmailField(label="")
+    project_link = forms.URLField()
+    class Meta:
+        model = Insertion
+        fileds = '__all__'
+
+
+    def __init__(self, *args, **kwargs):
+        self.request = kwargs.pop('request', None)
+        super(InsertionForm, self).__init__(*args, **kwargs)
+        self.fields['project_link'].help_text = _('یک لینکی استفاده کن که به .git ختم شه گل !')
+        self.fields['project_link'].label = 'لینک پروژه'
+        self.fields['project_link'].validators.append(RegexValidator(
+            regex=r'^\/([^/]+)\/([^/]+).git(/[^#]+)?(#(.*))?$',
+            message='باید یک پروژه گیت باشه گل!',
+        ))
+
+# (?:git@|https://)github.com[:/](.*).git
