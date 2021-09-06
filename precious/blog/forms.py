@@ -2,6 +2,8 @@ from django import forms
 from .models import *
 from ckeditor.widgets import CKEditorWidget
 from django.core.exceptions import ValidationError
+from django.utils.translation import gettext_lazy as _
+from django.core.validators import RegexValidator,URLValidator, EmailValidator
 
 '''
 class PostForm(forms.ModelForm):
@@ -107,21 +109,21 @@ class TableSearchForm(forms.Form):
 class InsertionForm(forms.ModelForm):
     cats = forms.MultipleChoiceField(label="", choices=CATS, widget=forms.CheckboxSelectMultiple())
     langtags = forms.MultipleChoiceField(label="", choices=LANGTAGS, widget=forms.CheckboxSelectMultiple())
-    your_email = forms.EmailField(label="")
-    project_link = forms.URLField()
+    your_email = forms.EmailField(label=_("ایمیل شما دوست عزیز "))
+    project_link = forms.URLField(label = _('لینک پروژه شما ای دوست گل :'))
     class Meta:
         model = Insertion
-        fileds = '__all__'
+        fields = '__all__'
 
 
     def __init__(self, *args, **kwargs):
         self.request = kwargs.pop('request', None)
         super(InsertionForm, self).__init__(*args, **kwargs)
         self.fields['project_link'].help_text = _('یک لینکی استفاده کن که به .git ختم شه گل !')
-        self.fields['project_link'].label = 'لینک پروژه'
+        self.fields['project_link'].label = _('لینک پروژه')
         self.fields['project_link'].validators.append(RegexValidator(
             regex=r'^\/([^/]+)\/([^/]+).git(/[^#]+)?(#(.*))?$',
             message='باید یک پروژه گیت باشه گل!',
         ))
-
-# (?:git@|https://)github.com[:/](.*).git
+        self.fields['project_link'].validators.append(URLValidator(schemes=['http', 'https']))
+        self.fields['your_email'].validators.append(EmailValidator(message = _('please provide a valid email.')))

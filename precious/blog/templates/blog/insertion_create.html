@@ -1,0 +1,18 @@
+{% extends 'blog/base.html' %}
+{% load static %}
+
+
+{% block content %}
+<form method="post">
+    {% csrf_token %}
+    ایمیل شما {{ form.your_email }}
+    <br><br>
+    لینک پروژه شما{{form.project_link }}
+    <br><br>
+    {{ form.cats }}
+    <br><br>
+    {{ form.langtags }}
+<>
+
+
+{% endblock %}

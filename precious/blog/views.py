@@ -1,8 +1,10 @@
 from django.shortcuts import render, reverse,get_object_or_404
 from django.http import HttpResponse
-from django.utils import messages
+from django.contrib import messages
 from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 from django.db.models import Q 
+from django.utils.translation import gettext_lazy as _
+
 from django.views import generic
 # POSTGRESQL 
 from django.contrib.postgres.search import SearchVector, SearchQuery, SearchRank
@@ -10,7 +12,7 @@ from django.contrib.postgres.search import SearchVector, SearchQuery, SearchRank
 # Internal imports 
 from .models import Post, Comment
 from .filters import PostFilter
-from .forms import CommentForm, SearchForm,TableSearchForm
+from .forms import CommentForm, SearchForm,TableSearchForm, InsertionForm
 
 def post_list(request):
 	## WITHOUT THE POSTGRESQL VECTOR SEARCH
@@ -92,11 +94,7 @@ def post_detail(request, slug):
 def search_forms(request):
 	return render(request, 'blog/search_forms.html',{})
 
-class CreatePostView(generic.CreateView):
+class CreateInsertionView(generic.CreateView):
 	model  = Post
-	form_class = PostForm
-	template_name = 'blog/post_create.html'
-
-    def get_success_url(self, *args):
-        messages.success(
-            self.request, _("حالا شما جوین شدین. سعی کنین وارد بشین و دیگه تمومممممممممممممممه!!")
+	form_class = InsertionForm
+	template_name = 'blog/insertion_create.html'
