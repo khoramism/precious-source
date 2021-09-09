@@ -10,4 +10,5 @@ urlpatterns = [
     path('hank', views.search_forms, name='search_forms'),
     path("feed/rss", LatestPostsFeed(), name="post_feed"),
     path('contact', views.ContactsView.as_view(), name = 'contact'),
+    path('support', views.SupportView.as_view(), name = 'support'),
 ]

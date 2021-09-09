@@ -102,3 +102,8 @@ class CreateInsertionView(generic.CreateView):
 
 class ContactsView(generic.TemplateView):
 	template_name = 'blog/contacts.html'
+
+
+
+class SupportView(generic.TemplateView):
+	template_name = 'blog/support.html'
