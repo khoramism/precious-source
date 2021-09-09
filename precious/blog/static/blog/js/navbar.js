@@ -10,6 +10,8 @@ $(document).ready(function () {
 
     $('#main-navbar .navbar-search-button .search-icon').toggle(300);
     $('#main-navbar .navbar-search-button .close-icon').toggle(300);
+
+    $('#main-navbar .navbar-search-input input').focus();
   });
 
 

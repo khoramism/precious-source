@@ -1,0 +1,88 @@
+.form-container {
+  width: 80%;
+  padding: 2em 3em;
+  margin: 3em auto;
+
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(28, 27, 24, 0.5);
+  background-color: #38383d;
+}
+
+.form-container .form-section-container {
+  width: 100%;
+  display: inline-block;
+  margin-bottom: 1em;
+}
+
+.form-container .form-section-container .form-label-div {
+  color: #fbfbfe;
+  display: inline-block;
+  margin-left: 1.5em;
+}
+
+.form-container .form-section-container .form-input { display: inline-block; }
+
+.form-container .form-section-container .form-input.filled > input {
+  width: 300px;
+  padding: 0.5em 0.7em;
+  border-radius: 20px;  
+  border: #673ec1 solid 2px;
+  color: #f9f9fa;
+  font-family: monospace;
+  background-color: #673ec1;
+}
+
+.form-container .form-section-container .form-input.filled > input:focus {
+  outline: none;
+  border: #4af626 solid 2px;
+}
+
+.form-section-container.tag-search .selected-tags-container {
+  display: inline-block;
+}
+
+.form-section-container.tag-search .selected-tags-container > div.selected-tag {
+  display: inline-block;
+  padding: 2px 7px;
+  margin-left: 10px;
+  margin-bottom: 5px;
+  border: 1px solid #b1b1b3;
+  border-radius: 20px;
+  transition: background-color 0.3s linear;
+  cursor: pointer;
+}
+
+.form-section-container.tag-search .selected-tags-container > div.selected-tag.en {
+  direction: ltr;
+  text-align: left;
+}
+
+.form-section-container.tag-search .selected-tags-container > div.selected-tag:hover { background-color: #673ec1; }
+
+.form-section-container.tag-search .selected-tags-container span {
+  color: #f9f9fa;
+  font-size: 13px;
+  text-decoration: none;
+  padding: 0 5px;
+  font-family: monospace;
+}
+
+.form-container .form-section-container.submit > button {
+  margin: 0 auto;
+  display: block;
+  padding: 0.5em 1.2em;
+  border-radius: 20px;
+  border: 2px solid #673ec1;
+  color: #f9f9fa;
+  font-size: 0.9em;
+  font-family: "IRANSansWeb";
+  background-color: #673ec1;
+  cursor: pointer;
+  transition: all 0.1s linear;
+}
+
+.form-container .form-section-container.submit > button:hover { padding: 0.5em 1.5em; }
+
+.form-container .form-section-container.message { display: none; }
+
+.form-container .form-section-container.message > p { color: #f03; }
