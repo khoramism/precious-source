@@ -9,4 +9,5 @@ urlpatterns = [
     path('insert', views.CreateInsertionView.as_view(), name='insert'),
     path('hank', views.search_forms, name='search_forms'),
     path("feed/rss", LatestPostsFeed(), name="post_feed"),
+    path('contact', views.ContactsView.as_view(), name = 'contact'),
 ]

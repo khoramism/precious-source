@@ -98,3 +98,7 @@ class CreateInsertionView(generic.CreateView):
 	model  = Post
 	form_class = InsertionForm
 	template_name = 'blog/insertion_create.html'
+
+
+class ContactsView(generic.TemplateView):
+	template_name = 'blog/contacts.html'
