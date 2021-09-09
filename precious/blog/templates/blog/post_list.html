@@ -7,9 +7,9 @@
     <meta charset="UTF-8">
     <title>{{ indexFunc.title }}</title>
 
-    <link href="{% static 'blog/css/search_forms.css' %}" type="text/css" rel="stylesheet">
-    <link href="{% static 'blog/css/search_dropdown.css' %}" type="text/css" rel="stylesheet">
-    <link href="{% static 'blog/css/search_rangeSlider.css' %}" type="text/css" rel="stylesheet">
+    <link href="{% static 'blog/css/form.css' %}" type="text/css" rel="stylesheet">
+    <link href="{% static 'blog/css/dropdown.css' %}" type="text/css" rel="stylesheet">
+    <link href="{% static 'blog/css/rangeSlider.css' %}" type="text/css" rel="stylesheet">
 </head>
 
 <br>
@@ -27,18 +27,11 @@
 	</div>
 </div>
 <br>
-{{myform}}
+<!-- {{myform}} -->
 <div class="form-container">
   <form method="GET">
-    <div id="completed-search-form">
-      <span id="completed-search-form__langtags"></span>
-      <span id="completed-search-form__cats"></span>
-      <span id="completed-search-form__stars"></span>
-      <span id="completed-search-form__submit"></span>
-    </div>
-
-    <div class="tag-search-container">
-      <div class="search-label">
+    <div class="form-section-container tag-search">
+      <div class="form-label-div">
         <label for="tag-search-input__langtags">زبان/تکنولوژی مورد نظر را انتخاب کنید: </label>
       </div>
       <div class="dropdown-container">
@@ -56,8 +49,8 @@
       <div id="selected-tags-container__langtags" class="selected-tags-container"></div>
     </div>
 
-    <div class="tag-search-container">
-      <div class="search-label">
+    <div class="form-section-container tag-search">
+      <div class="form-label-div">
         <label for="tag-search-input__cats">دسته&zwnj;بندی مورد نظر را انتخاب کنید: </label>
       </div>
       <div class="dropdown-container">
@@ -75,8 +68,8 @@
       <div id="selected-tags-container__cats" class="selected-tags-container"></div>
     </div>
 
-    <div class="rating-filter-container">
-      <div class="search-label">
+    <!-- <div class="form-section-container rating-filter">
+      <div class="form-label-div">
         {{ myform.stars }}
         <p>تعداد ستاره در گیت هاب: </p>
       </div>
@@ -96,13 +89,13 @@
         <label for="range-slider__max">تا:</label>
         <input type="number" step="1" min="1" name="max-rating" id="range-slider__max">
       </div>
-    </div>
+    </div> -->
 
-    <div class="form-message-container">
+    <div class="form-section-container message">
       <p></p>
     </div>
 
-    <div class="submit-container">
+    <div class="form-section-container submit">
       <button type="submit">جست&zwnj;وجو</button>
     </div>
 
@@ -110,11 +103,8 @@
 
 </div>
 
-<script type="text/javascript" src="{% static 'blog/js/dropdown/cat.js' %}"></script>
-<script type="text/javascript" src="{% static 'blog/js/dropdown/dropdown_options.js' %}"></script>
-<script type="text/javascript" src="{% static 'blog/js/dropdown/search_dropdown.js' %}"></script>
-<script type="text/javascript" src="{% static 'blog/js/search_rangeSlider.js' %}"></script>
-<script type="text/javascript" src="{% static 'blog/js/submit_form.js' %}"></script>
+<script type="text/javascript" src="{% static 'blog/js/dropdown.js' %}"></script>
+<!-- <script type="text/javascript" src="{% static 'blog/js/rangeSlider.js' %}"></script> -->
 
 <div class="row">
 	<div class="col-md">

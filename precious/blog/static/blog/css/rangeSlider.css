@@ -1,20 +1,16 @@
-.rating-filter-container {
-	width: 100%;
-}
-
-.rating-filter-container .range-slider-container {
-	display: none;
-	/*display: inline-block;*/
+.range-slider-container {
+	/*display: none;*/
+	display: inline-block;
 	margin: 0 1em;
 	direction: ltr;
 }
 
-.rating-filter-container .range-slider-container > span {
+.range-slider-container > span {
 	color: #f9f9fa;
 	font-size: 1.1em;
 }
 
-.rating-filter-container .range-slider-container .range-rail {
+.range-slider-container .range-rail {
 	width: 12em;
 	height: 5px;
 	display: inline-block;
@@ -26,7 +22,7 @@
 	background-color: #f9f9fa;
 }
 
-.rating-filter-container .range-slider-container .range-rail .range-slider {
+.range-slider-container .range-rail .range-slider {
 	width: 20px;
 	height: 20px;
 
@@ -42,12 +38,12 @@
 	background-color: #673ec1;
 }
 
-.rating-filter-container .range-input-container {
+.range-input-container {
 	display: inline-block;
 	color:  #f9f9fa;
 }
 
-.rating-filter-container .range-input-container input {
+.range-input-container input {
 	width: 3.5em;
 	outline: none;
 	color: #fbfbfe;
@@ -59,23 +55,23 @@
 	transition: width 0.1s linear;
 }
 
-.rating-filter-container .range-input-container input:focus {
+.range-input-container input:focus {
 	width: 4em;
 }
 
 /* Chrome, Safari, Edge, Opera */
-.rating-filter-container .range-input-container input::-webkit-outer-spin-button,
-.rating-filter-container .range-input-container input::-webkit-inner-spin-button {
+.range-input-container input::-webkit-outer-spin-button,
+.range-input-container input::-webkit-inner-spin-button {
 	-webkit-appearance: none;
 	margin: 0;
 }
 
 /* Firefox */
-.rating-filter-container .range-input-container input[type=number] {
+.range-input-container input[type=number] {
 	-moz-appearance: textfield;
 }
 
-.rating-filter-container .range-input-container.error input {
+.range-input-container.error input {
 	border-bottom: 3px solid #f03;
 	color: #f03;
 }
