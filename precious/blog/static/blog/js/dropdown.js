@@ -1,16 +1,11 @@
-// import DROPDOWN_OPTIONS from './dropdown_list.js';
-
 $(document).ready(function () {
   'use strict';
 
-  $('.dropdown .dropdown-options-container ul li').addClass('dropdown-options');
+  $('.dropdown .dropdown-options-container > ul > li').addClass('dropdown-options');
 
-  const header = $('.dropdown .dropdown-header');
   const optionsContainer = $('.dropdown .dropdown-options-container');
   const optionsInput = $('.dropdown .dropdown-options-container .dropdown-options input[type="checkbox"]');
-  let tags = $('.tag-search-container .selected-tags-container > div.selected-tag');
-  // let dropdownOptions_langtags = $('#dropdown__langtags .dropdown-options');
-  // let dropdownOptions_cats = $('#dropdown__cats .dropdown-options');
+  let tags = $('.form-section-container.tag-search .selected-tags-container > div.selected-tag');
   
   // Add any dropdown section name in here, has to be specific obviously
   const sections = ['langtags', 'cats'];
@@ -29,7 +24,7 @@ $(document).ready(function () {
   for (let i = 0; i < optionsInput.length; i++) $(optionsInput[i]).prop('checked', false);
 
 
-  header.click(function(e) {
+  $('.dropdown .dropdown-header').click(function(e) {
     // Toggles the dropdown if clicked on the header of the dropdown
     $(this).siblings('.dropdown-options-container').slideToggle(300);
 
@@ -39,9 +34,6 @@ $(document).ready(function () {
   });
 
   optionsInput.click(handleOptionsClick);
-
-  // tags.on('click', '.tag-search-container .selected-tags-container > div.selected-tag', handleTagsClick);
-  // tags.off('click', '.tag-search-container .selected-tags-container > div.selected-tag', handleTagsClick);
 
   // Filter dropdown options by typing
   $('.dropdown .dropdown-header > input').on('input', function(e) {
@@ -132,7 +124,7 @@ $(document).ready(function () {
   }
 
   function updateTags (action, selectedItem, secId) {
-    let currTags = $(`.tag-search-container #selected-tags-container__${secId} > div.selected-tag`);
+    let currTags = $(`.form-section-container.tag-search #selected-tags-container__${secId} > div.selected-tag`);
     if (action === 'REMOVE') {
       for (let i = 0; i < currTags.length; i++) {
         if (currTags[i].textContent.trim() === selectedItem) {
@@ -163,7 +155,7 @@ $(document).ready(function () {
       throw new Error("Undefined action value for updateTags() function.");
     }
 
-    tags = $('.tag-search-container .selected-tags-container > div.selected-tag');
+    tags = $('.form-section-container.tag-search .selected-tags-container > div.selected-tag');
     tags.off('click');
     tags.on('click', handleTagsClick);
   }

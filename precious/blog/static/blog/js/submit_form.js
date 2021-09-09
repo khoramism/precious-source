@@ -1,19 +1,19 @@
 $(document).ready(function () {
-  document.querySelector('.form-container .submit-container button').addEventListener('click', function(event){
+  document.querySelector('.form-section-container.submit button').addEventListener('click', function(event){
     event.preventDefault();
 
     function validateInputs () {
       if ( +document.querySelector('.form-container #range-slider__min').value
         > +document.querySelector('.form-container #range-slider__max').value ) {
 
-        $('.rating-filter-container .range-input-container').addClass('error');
-        $('.form-message-container').show();
-        document.querySelector('.form-message-container p').innerHTML = 'لطفاً خطاهای مشخص شده را رفع کنید.';
+        $('.form-section-container.rating-filter .range-input-container').addClass('error');
+        $('.form-section-container.message').show();
+        document.querySelector('.form-section-container.message p').innerHTML = 'لطفاً خطاهای مشخص شده را رفع کنید.';
 
-        $('.rating-filter-container .range-input-container input').on('input', function () {
-          $('.rating-filter-container .range-input-container').removeClass("error");
-          $('.form-message-container').hide();
-          document.querySelector('.form-message-container p').innerHTML = '';
+        $('.form-section-container.rating-filter .range-input-container input').on('input', function () {
+          $('.form-section-container.rating-filter .range-input-container').removeClass("error");
+          $('.form-section-container.message').hide();
+          document.querySelector('.form-section-container.message p').innerHTML = '';
         });
         return false;
       } else return true;

@@ -5,6 +5,11 @@
 	color: #fbfbfe;
 }
 
+.form-container .dropdown-container {
+  display: inline-block;
+  margin: 0.7em 0 0.7em 1.5em;
+}
+
 .dropdown .dropdown-header {
 	padding: 5px 10px;
 	font-size: 15px;
@@ -68,6 +73,9 @@
 .dropdown .dropdown-options-container > ul > li > label {
 	display: block;
 	width: 100%;
+}
+
+.dropdown .dropdown-options-container > ul > li input {
 	cursor: pointer;
 }
 
