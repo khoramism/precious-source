@@ -1,33 +1,20 @@
 from django.contrib import admin
-from .models import Post , Comment, Category, LangTag
+from .models import Post ,Insertion, Comment, Category, LangTag
 from django import forms
 from ckeditor.widgets import CKEditorWidget
+from .forms import PostAdminForm, InsertionAdminForm
 # Register your models here.
 
-class PostAdminForm(forms.ModelForm):
-    content = forms.CharField(widget=CKEditorWidget())
-    #langtag = forms.MultipleChoiceField(widget=CustomCheckboxSelectMultiple, required=False)
-    def __init__(self, *args, **kwargs):
-        super().__init__(*args, **kwargs)
-        self.fields['summary'].required = True
-        self.fields['content'].required = True
-        self.fields['title'].required = True
-        self.fields['url'].required = True
-    class Meta:
-        model = Post
-        fields = '__all__'
 
 
-
+@admin.register(Post)
 class PostAdmin(admin.ModelAdmin):
     list_display = ('title', 'summary', 'status','created','updated')
-    form = PostAdminForm
+    #form = PostAdminForm
     list_filter = ("status",)
     search_fields = ['title', 'content']
     prepopulated_fields = {'slug': ('title',)}
-# Register your models here.
 
-admin.site.register(Post, PostAdmin)
 
 
 @admin.register(Comment)
@@ -39,6 +26,12 @@ class CommentAdmin(admin.ModelAdmin):
 
     def approve_comments(self, request, queryset):
         queryset.update(active=True)
+
+@admin.register(Insertion)
+class InsertionAdmin(admin.ModelAdmin):
+    list_display = ('your_email','project_link')
+    #form = InsertionAdminForm
+    search_fields = ('your_email','project_link')
 
 
 admin.site.register(Category)

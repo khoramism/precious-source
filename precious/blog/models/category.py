@@ -1,7 +1,7 @@
 from django.db import models 
+from multiselectfield import MultiSelectField
+from .choices import *
 
 
-class Category(models.Model):
-    name = models.CharField(max_length=20)
-    def __str__(self):
-        return self.name
+class Category(models.Model): 
+    cats = MultiSelectField(choices=CATS)

@@ -7,7 +7,7 @@ class Insertion(models.Model):
     
     your_email  = models.EmailField(verbose_name='ایمیل شما :)')
 
-    cat = models.ForeignKey(Category, on_delete=models.CASCADE, related_name='insertions')
+    cats = models.ForeignKey(Category, on_delete=models.CASCADE, related_name='insertions')
 
     langtags = models.ForeignKey(LangTag, on_delete=models.CASCADE, related_name='insertions')
 

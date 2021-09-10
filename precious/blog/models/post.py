@@ -1,6 +1,8 @@
 
 # Create your models here.
 from django.db import models
+from multiselectfield import MultiSelectField
+from .choices import *
 from .base import Base
 from .category import Category
 from ckeditor_uploader.fields import RichTextUploadingField
@@ -20,11 +22,11 @@ class Post(Base):
 	
 	summary = models.CharField(max_length=300,blank=True,null=True,default='')
 
-	cat = models.ForeignKey(Category, on_delete=models.CASCADE, related_name='posts')
-	
+	cat = MultiSelectField(choices=CATS)
+
 	video = models.URLField(max_length=1000)
 	
-	langtag = models.ForeignKey(LangTag, on_delete=models.CASCADE, related_name='posts')
+	langtag  = MultiSelectField(choices=LANGTAGS)
 
 	author = models.ForeignKey(
         User, on_delete=models.CASCADE, related_name="blog_posts")

@@ -51,6 +51,7 @@ INSTALLED_APPS = [
     'ckeditor',
     'ckeditor_uploader',
     'crispy_forms',
+    'multiselectfield',
     # API CONFIG 
     "graphene_django",
 ]

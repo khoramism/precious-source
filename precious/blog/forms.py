@@ -4,7 +4,7 @@ from ckeditor.widgets import CKEditorWidget
 from django.core.exceptions import ValidationError
 from django.utils.translation import gettext_lazy as _
 from django.core.validators import RegexValidator,URLValidator, EmailValidator
-
+from .models import choices
 '''
 class PostForm(forms.ModelForm):
     title = forms.CharField(widget=forms.TextInput(),required=True, max_length=100)
@@ -20,95 +20,42 @@ class CommentForm(forms.ModelForm):
         model = Comment
         fields = ('name', 'email', 'body')
 
+class PostAdminForm(forms.ModelForm):
+    cats = forms.MultipleChoiceField(label="", choices=choices.CATS, widget=forms.CheckboxSelectMultiple())
+    langtags = forms.MultipleChoiceField(label="", choices=choices.LANGTAGS, widget=forms.CheckboxSelectMultiple())
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields['summary'].required = True
+        self.fields['content'].required = True
+        self.fields['title'].required = True
+        self.fields['url'].required = True
+    class Meta:
+        model = Post
+        fields = '__all__'
 
-LANGTAGS = (
-    ('Python','Python'),
-    ('Java','Java'),
-    ('JavaScript','JavaScript'), 
-    ('Php','Php'),
-    ('Wordpress','Wordpress'),
-    ('BootStrap','BootStrap'),
-    ("Html & Css","Html & Css"),
-    ('SQLite','SQLite'),
-    ('MySQL','MySQL'),
-    ('PostgreSQL','PostgreSQL'),
-    ('C#','C#'),
-    ('Git','Git'),
-    ('Docker','Docker'),
-    ('Sass','Sass'),
-    ('Scss','Scss'),
-    ('R','R'),
-    ('Kotlin','Kotlin'),
-    ('Go','Go'),
-    ('C++','C++'),
-    ('C','C'),
-    ('JSON(API)','JSON(API)'),
-    ('Ajax','Ajax'),
-    ('AngularJS','AngularJS'),
-    ("React","React"),
-    ('JQuery','JQuery'),
-    ('Vue','Vue'),
-    ('Node.js','Node.js'),
-    ('Raspberrypi','Raspberrypi'),
-    ('ASP','ASP'),
-    ('Django','Django'),
-    ('Express.js','Express.js'),
-    ('Flask','Flask'),
-    ('CherryPy','CherryPy'),
-    ('GraphQL','GraphQL'),
-    ('TensorFlow','TensorFlow'),
-    ('Pandas','Pandas'),
-    ('Numpy','Numpy'),
-    ('PyTorch','PyTorch'),
-    ('Keras','Keras'),
-    ('Theano','Theano'),
-    ('MatPlotLib','MatPlotLib'),
-    ('SciPy','SciPy'),
-    ('PyGame','PyGame'),
-    ('BS4','BS4'),
-    ('Pillow','Pillow'),
-    ('Meteor','Meteor'),
-    ('Next.js','Next.js'),
-    ('Ionic','Ionic'),
-    ('Winjs','Winjs'),
-    ('Selenium','Selenium'),
-    ('OpenCV','OpenCV'),
-    ("Dojo","Dojo"),
-    ('Velocity.js','Velocity.js'),
-    )
+class InsertionAdminForm(forms.ModelForm):
+    
+    cats = forms.MultipleChoiceField(label="", choices=choices.CATS, widget=forms.CheckboxSelectMultiple())
+    langtags = forms.MultipleChoiceField(label="", choices=choices.LANGTAGS, widget=forms.CheckboxSelectMultiple())
 
-CATS = (
-    ("Artificial Intelligence and Machine Learning","Artificial Intelligence and Machine Learning"),
-    ("Security","Security"),
-    ("Data Science/Analytics","Data Science/Analytics"),
-    ("Software Development", "Software Development"),
-    ("Computer Networking", "Computer Networking"),
-    ("Frontend Development","Frontend Development"),
-    ("Backend development", "Backend development"),
-    ("Mobile Development", "Mobile Development"),
-    ("Desktop Development", "Desktop Development"),
-    ("DevOps Development","DevOps Development"),
-    ("Game Development","Game Development"),
-    ("Web Development","Web Development"),
-    ("Cryptography Development","Cryptography Development"),
-    ("CryptoCurrnecy Development","CryptoCurrnecy Development"),
-    ("BlockChain Development","BlockChain Development"),
-    ("Database Development",  "Database Development"),
+    class Meta:
+        model = Insertion
+        fields = '__all__'
 
-)
+
 
 class SearchForm(forms.Form):
     search = forms.CharField(required=False, label="")
     search.widget = forms.TextInput(attrs={'placeholder':"تایپ کنید: ",'name': 'email'})
 
 class TableSearchForm(forms.Form):
-    cats = forms.MultipleChoiceField(label="", choices=CATS, widget=forms.CheckboxSelectMultiple())
-    langtags = forms.MultipleChoiceField(label="", choices=LANGTAGS, widget=forms.CheckboxSelectMultiple())
+    cats = forms.MultipleChoiceField(label="", choices=choices.CATS, widget=forms.CheckboxSelectMultiple())
+    langtags = forms.MultipleChoiceField(label="", choices=choices.LANGTAGS, widget=forms.CheckboxSelectMultiple())
     stars = forms.IntegerField(label="ستاره ها")
     
 class InsertionForm(forms.ModelForm):
-    cats = forms.MultipleChoiceField(label="", choices=CATS, widget=forms.CheckboxSelectMultiple())
-    langtags = forms.MultipleChoiceField(label="", choices=LANGTAGS, widget=forms.CheckboxSelectMultiple())
+    cats = forms.MultipleChoiceField(label="", choices=choices.CATS, widget=forms.CheckboxSelectMultiple())
+    langtags = forms.MultipleChoiceField(label="", choices=choices.LANGTAGS, widget=forms.CheckboxSelectMultiple())
     your_email = forms.EmailField(label=_("ایمیل شما دوست عزیز "))
     project_link = forms.URLField(label = _('لینک پروژه شما ای دوست گل :'))
     class Meta:

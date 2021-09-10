@@ -1,6 +1,7 @@
 {% extends 'blog/base.html' %}
 {% load static %}
 {% load crispy_forms_tags %}
+{% block content %}
   <head>
     <meta charset="UTF-8">
     <title>{{ indexFunc.title }}</title>
@@ -12,9 +13,7 @@
     <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.4.1/highlight.min.js"></script>
     <script>hljs.initHighlightingOnLoad();</script>
   </head>
-{% block content %}
-
-  <div class="posts-container">
+  <div class="posts-container"></div>
     <h1>{% block title %} {{ post.title }} {% endblock title %}</h1>
       <div class="post-card">
         <div class="post-img">
@@ -42,17 +41,30 @@
             {{post.content |safe }}
           </div>
           <div class="post-tags">
-            <div><a href="#">تگ</a></div>
-            <div><a href="#">تگ</a></div>
-            <div><a href="#">تگ</a></div>
-            <div><a href="#">تگ</a></div>
-            <div><a href="#">تگ</a></div>
-            <div><a href="#">تگ</a></div>
-          </div>
-          <div class="post-readmore">
-            <a href="{% url 'post_detail' post.slug  %}">بیشتر بخوانید</a>
+            <div><a href="#">تگ</a>{{ post.cats }}</div>
+            {% for category in post.cat %}
+              <br>
+              <br>
+              {{category}}
+            {% endfor %}
+            <br>
+            {% for tag in post.langtag %}
+              <br>
+              <br>
+              {{tag}}
+            {% endfor %}
+
           </div>
         </div>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
         <form method="post" style="margin-top: 1.3em;">
           {{ comment_form | crispy }}
           {% csrf_token %}
@@ -60,16 +72,17 @@
          </form>
       </div>
       <h2>{{ comments.count }} comments</h2>
-  </div>
-  {% for comment in comments %}
-  <div class="comments" style="padding: 10px;">
-    <p class="font-weight-bold">
-      {{ comment.name }}
-      <span class=" text-muted font-weight-normal">
-        {{ comment.created_on }}
-      </span>
-    </p>
-    {{ comment.body | linebreaks }}
+  
+    {% for comment in comments %}
+    <div class="comments" style="padding: 10px;">
+      <p class="font-weight-bold">
+        {{ comment.name }}
+        <span class=" text-muted font-weight-normal">
+          {{ comment.created_on }}
+        </span>
+      </p>
+      {{ comment.body | linebreaks }}
+    </div>
   </div>
   {% endfor %}
 {% endblock %}

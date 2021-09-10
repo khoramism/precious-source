@@ -4,3 +4,4 @@ django-environ
 graphene 
 graphene-django
 pytest
+django-multiselectfield
