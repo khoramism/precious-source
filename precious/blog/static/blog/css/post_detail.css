@@ -108,20 +108,73 @@
 
 .post-main .post-toolbar .post-toolbar-item:hover i { color: #2b2a33; }
 
-
-
 .post-main .post-article {
   color: #d9d9da;
   padding: 1em 2em;
 }
 
-.post-main .post-article img {
-  width: 80%;
-  height: auto;
-  margin: 20px auto;
-  display: block;
+
+/* COMMENTS */
+#post-write-comment .form-section-container > label {
+  float: right;
+  color: #d9d9da;
+  margin-left: 10px;
 }
 
+#post-write-comment .form-section-container .form-input {
+  display: inline-block;
+}
 
+#post-write-comment .form-section-container .form-input input {  
+  font-family: "IRANSansWeb";
+}
 
+#post-write-comment #id_body {
+  border: none;
+  border-radius: 20px;
+  padding: 10px;
+  font-family: "IRANSansWeb";
+  font-size: 0.8em;
+  border: 2px solid #673ec1;
+  color: #f9f9fa;
+  background-color: #673ec1;
+}
 
+#post-write-comment #id_body:focus {
+  outline: none;
+  border: 2px solid #4af626;
+}
+
+#post-comment-section {
+  padding: 1em 2em;
+  /*width: 100%;*/
+}
+
+#post-comment-section .comments {
+  max-width: 60%;
+  padding: 1em;
+  margin-bottom: 0.8em;
+  border-radius: 20px;
+  color: #f9f9fa;
+  background-color: #673ec1;
+}
+
+/* name and date text in a comment */
+#post-comment-section .comments p.comment-metadata {
+  color: #b1b1b3;
+  font-size: 0.8em;
+}
+#post-comment-section #post-comment-section__count {
+  color: #f9f9fa;
+  font-size: 1em;
+  margin-bottom: 10px;
+}
+#post-comment-section .comments p.comment-metadata .comment-metadata__name,
+#post-comment-section .comments p.comment-metadata .comment-metadata__date {
+  font-style: italic;
+}
+
+/* comment body of a comment bubble */
+#post-comment-section .comments p:nth-child(2) {
+
+}
