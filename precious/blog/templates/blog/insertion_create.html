@@ -11,7 +11,7 @@
 </head>
 
 <div class="form-container">
-  <form method="post">
+  <form method="post" action="#">
     {% csrf_token %}
     <div class="form-section-container">
       <div class="form-label-div">
@@ -70,6 +70,9 @@
         </div>
       </div>
       <div id="selected-tags-container__cats" class="selected-tags-container"></div>
+    </div>
+    <div class="form-section-container submit">
+      <button type="submit">تایید</button>
     </div>
   </form>
 </div>
