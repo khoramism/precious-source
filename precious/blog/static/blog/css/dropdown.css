@@ -73,6 +73,7 @@
 .dropdown .dropdown-options-container > ul > li > label {
 	display: block;
 	width: 100%;
+	cursor: pointer
 }
 
 .dropdown .dropdown-options-container > ul > li input {

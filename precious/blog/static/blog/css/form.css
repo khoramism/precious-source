@@ -48,8 +48,9 @@
   margin-bottom: 5px;
   border: 1px solid #b1b1b3;
   border-radius: 20px;
-  transition: background-color 0.3s linear;
+  color: #f9f9fa;
   cursor: pointer;
+  transition: all 0.3s linear;
 }
 
 .form-section-container.tag-search .selected-tags-container > div.selected-tag.en {
@@ -57,10 +58,13 @@
   text-align: left;
 }
 
-.form-section-container.tag-search .selected-tags-container > div.selected-tag:hover { background-color: #673ec1; }
+.form-section-container.tag-search .selected-tags-container > div.selected-tag:hover {
+  border: 1px solid #4af626;
+  color: #4af626;
+}
 
 .form-section-container.tag-search .selected-tags-container span {
-  color: #f9f9fa;
+  color: inherit;
   font-size: 13px;
   text-decoration: none;
   padding: 0 5px;
@@ -81,7 +85,12 @@
   transition: all 0.1s linear;
 }
 
-.form-container .form-section-container.submit > button:hover { padding: 0.5em 1.5em; }
+.form-container .form-section-container.submit > button:hover {
+  border: 2px solid #4af626;
+  color: #4af626;
+  background-color: transparent;
+  padding: 0.5em 1.5em;
+}
 
 .form-container .form-section-container.message { display: none; }
 

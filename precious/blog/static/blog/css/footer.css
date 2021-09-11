@@ -2,7 +2,6 @@ footer {
     box-shadow: 0 -3px 6px rgba(0,0,0,0.2);
 	background-color: #38383d;
 
-	/*height: 300px;*/
 	display: flex;
 	flex-direction: row;
 	padding: 1.5em;
@@ -23,7 +22,7 @@ footer > div ul li { margin-bottom: 0.8em; }
 footer > div ul li:first-child {
 	margin-bottom: 1em;
 	font-size: 1.2em;
-	color: #673ec1;
+	color: #976ef1;
 }
 
 footer > div ul li a {
@@ -33,7 +32,9 @@ footer > div ul li a {
 }
 
 footer > div.footer-contactInfo ul li i { color: #673ec1; }
-footer > div.footer-links ul li a:hover { text-decoration: underline; }
+footer > div.footer-contactInfo ul li:hover i { color: #4af626; }
+footer > div.footer-links ul li a:hover { text-decoration: underline #4af626;}
+footer > div.footer-links ul li a:hover::before { color: #4af626; }
 footer > div.footer-links ul li a::before {
 	content: '> ';
 	color: #673ec1;
