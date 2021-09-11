@@ -6,83 +6,73 @@
     <meta charset="UTF-8">
     <title>{{ indexFunc.title }}</title>
 
-    <link href="{% static 'blog/css/post_card.css' %}" type="text/css" rel="stylesheet">
+    <link href="{% static 'blog/css/post_detail.css' %}" type="text/css" rel="stylesheet">
 
     <link rel="stylesheet"
       href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.4.1/styles/monokai-sublime.min.css">
     <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.4.1/highlight.min.js"></script>
     <script>hljs.initHighlightingOnLoad();</script>
   </head>
-  <div class="posts-container"></div>
-    <h1>{% block title %} {{ post.title }} {% endblock title %}</h1>
-      <div class="post-card">
-        <div class="post-img">
-          <img src="{% static 'blog/img/code.jpg' %}">
-        </div>
-        <div class="post-info">
-          <div class="post-title">
-            <p>{{ post.title }}</p>
-          </div>
-          <div class="post-metadata">
-            <div class="post-whoWhen">
-              <p>توسط <a href="#" class="post-author">{{ post.author }}</a> در <span class="post-date">{{ post.created_on}}</span></p>
-            </div>
-            <div class="post-rating">
-                <!--
-                  Full star  => fas fa-star
-                  Half star  => fa-star-half-alt
-                  Empty star => far fa-star
-                -->
-                <p><i class="fas fa-star"></i> <span>{{ post.stars }}</span></p>
-              </div>
-          </div>
-          <div class="post-summary">
-            {{ post.media }}
-            {{post.content |safe }}
-          </div>
-          <div class="post-tags">
-            <div><a href="#">تگ</a>{{ post.cats }}</div>
-            {% for category in post.cat %}
-              <br>
-              <br>
-              {{category}}
-            {% endfor %}
-            <br>
-            {% for tag in post.langtag %}
-              <br>
-              <br>
-              {{tag}}
-            {% endfor %}
 
-          </div>
-        </div>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <form method="post" style="margin-top: 1.3em;">
-          {{ comment_form | crispy }}
-          {% csrf_token %}
-          <button type="submit" class="btn btn-primary  btn-lg">Submit</button>
-         </form>
-      </div>
-      <h2>{{ comments.count }} comments</h2>
-  
-    {% for comment in comments %}
-    <div class="comments" style="padding: 10px;">
-      <p class="font-weight-bold">
-        {{ comment.name }}
-        <span class=" text-muted font-weight-normal">
-          {{ comment.created_on }}
-        </span>
-      </p>
-      {{ comment.body | linebreaks }}
+
+<header class="post-headear">
+  <div class="post-title">
+    <h1>{% block title %} {{ post.title }} {% endblock title %}</h1>
+  </div>
+  <div class="post-meta">
+    <p class="post-whoWhen">توسط <span>{{ post.author }}</span> در <span>{{ post.created_on }}</span></p>
+    <p class="post-stars"><i class="fas fa-star"></i> <span>{{ post.stars }}</span></p>
+  </div>
+  <div class="post-tags en">
+    <div id="post-tags-row__langtag" class="post-tags-row">
+      {% for tag in post.langtag %}
+        <div><p>{{ tag }}</p></div>
+      {% endfor %}
+    </div>
+    <div id="post-tags-row__cat" class="post-tags-row">
+      {% for category in post.cat %}
+        <div><p>{{ category }}</p></div>
+      {% endfor %}
     </div>
   </div>
+</header>
+<main class="post-main">
+  <aside class="post-toolbar">
+    <div class="post-toolbar-item">
+      <a href="#"><i class="fas fa-share"></i>اشتراک گذاری</a>
+    </div>
+    <div class="post-toolbar-item">
+      <a href="#"><i class="fab fa-github"></i>گیت هاب</a>
+    </div>
+    <div class="post-toolbar-item">
+      <a href="#"><i class="fas fa-download"></i>دانلود</a>
+    </div>
+    <div class="post-toolbar-item">
+      <a href="#post-comment-section"><i class="fas fa-comment"></i>کامنت</a>
+    </div>
+  </aside>
+  <article class="post-article en">
+    {{ post.media }}
+    {{post.content |safe }}
+  </article>
+</main>
+
+<form id="post-comment-section" method="post" style="margin-top: 1.3em;">
+  {{ comment_form | crispy }}
+  {% csrf_token %}
+  <button type="submit" class="btn btn-primary  btn-lg">Submit</button>
+</form>
+<h2>{{ comments.count }} comments</h2>
+{% for comment in comments %}
+<div class="comments" style="padding: 10px;">
+  <p class="font-weight-bold">
+    {{ comment.name }}
+    <span class=" text-muted font-weight-normal">
+    {{ comment.created_on }}
+    </span>
+  </p>
+  {{ comment.body | linebreaks }}
+</div>
+</div>
   {% endfor %}
 {% endblock %}

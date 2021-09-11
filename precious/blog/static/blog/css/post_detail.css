@@ -1,0 +1,127 @@
+/* HEADER */
+.post-headear {
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)),
+              url("/static/blog/img/code.jpg");
+  background-color: #cccccc;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  padding: 2em;
+}
+
+.post-headear .post-title {
+  color: #f9f9fa;
+  text-align: center;  
+}
+
+.post-headear .post-meta {
+  color: #b1b1b3;
+  font-size: smaller;
+  text-align: center;
+}
+
+.post-headear .post-meta p {
+  display: inline-block;
+}
+
+.post-headear .post-meta p.post-whoWhen span {
+  text-decoration: underline;
+}
+
+.post-headear .post-meta .post-stars {
+  direction: ltr;
+  padding: 0 0.5em;
+  color: #673ec1;
+  font-size: 0.8rem;
+  border-radius: 4px;
+  background-color: #b1b1b3;
+}
+.post-headear .post-meta .post-stars i {
+  cursor: pointer;
+  transition: color 0.3s linear;
+}
+.post-headear .post-meta .post-stars i:hover {
+  color: #673ec1;;
+}
+
+/*.post-headear .post-tags {}*/
+
+/*.post-headear .post-tags .post-tags-row {}*/
+
+.post-headear .post-tags .post-tags-row > div {
+  display: inline-block;
+  padding: 0.1em 0.5em;
+  margin-left: 2px;
+  margin-bottom: 5px;
+  border: 1px solid #b1b1b3;
+  border-radius: 20px;
+  font-family: monospace;
+  color: #f9f9fa;
+  font-size: 1.2em;
+  transition: all 0.3s linear;
+  cursor: pointer;
+}
+
+.post-headear .post-tags .post-tags-row > div:hover {
+  border: 1px solid #4af626;
+  color: #4af626;
+}
+
+
+
+
+/* MAIN */
+/*.post-main {}*/
+
+.post-main .post-toolbar {
+  padding: 1em 1em;
+}
+
+.post-main .post-toolbar .post-toolbar-item {
+  padding: 0 0.5em;
+  margin-left: 10px;
+  border: 1px solid #4af626;
+  border-radius: 20px;
+  display: inline-block;
+  transition: all 0.3s linear;
+  cursor: pointer;
+  
+}
+
+.post-main .post-toolbar .post-toolbar-item:hover { background-color: #4af626; }
+
+.post-main .post-toolbar .post-toolbar-item a {
+  transition: all 0.3s linear;
+  color: #d9d9da;
+  font-size: 0.9em;
+  text-decoration: none;
+}
+
+.post-main .post-toolbar .post-toolbar-item:hover a { color: #2b2a33; }
+
+.post-main .post-toolbar .post-toolbar-item i {
+  margin-left: 5px;
+  color: #4af626;
+  transition: all 0.3s linear;
+}
+
+.post-main .post-toolbar .post-toolbar-item:hover i { color: #2b2a33; }
+
+
+
+.post-main .post-article {
+  color: #d9d9da;
+  padding: 1em 2em;
+}
+
+.post-main .post-article img {
+  width: 80%;
+  height: auto;
+  margin: 20px auto;
+  display: block;
+}
+
+
+
+
