@@ -1,0 +1,47 @@
+<head>
+	<link href="{% static 'blog/css/post_card.css' %}" type="text/css" rel="stylesheet">
+</head>
+
+<div class="posts-container">
+  <div class="post-card">
+    <div class="post-img">
+      <img src="{% static 'blog/img/code.jpg' %}">
+    </div>
+    <div class="post-info">
+      <div class="post-title">
+        <p>{{ post.title }}</p>
+      </div>
+      <div class="post-metadata">
+        <div class="post-whoWhen">
+          <p>توسط <a href="#" class="post-author">{{ post.author }}</a> در <span class="post-date">{{ post.created_on}}</span></p>
+        </div>
+        <div class="post-rating">
+          <!--
+            Full star  => fas fa-star
+            Half star  => fa-star-half-alt
+            Empty star => far fa-star
+            -->
+          <p><i class="fas fa-star"></i> <span>{{ post.stars }}</span></p>
+        </div>
+      </div>
+      <div class="post-summary">
+        {{ post.media }}
+        {{post.content |safe }}
+      </div>
+      <div class="post-tags">
+        <div><a href="#">تگ</a>{{ post.cats }}</div>
+        {% for category in post.cat %}
+        <br>
+        <br>
+        {{category}}
+        {% endfor %}
+        <br>
+        {% for tag in post.langtag %}
+        <br>
+        <br>
+        {{tag}}
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</div>

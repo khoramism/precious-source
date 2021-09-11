@@ -74,7 +74,7 @@
 .form-container .form-section-container.submit > button {
   margin: 0 auto;
   display: block;
-  padding: 0.5em 1.2em;
+  padding: 0.3em 1.5em;
   border-radius: 20px;
   border: 2px solid #673ec1;
   color: #f9f9fa;
@@ -89,7 +89,7 @@
   border: 2px solid #4af626;
   color: #4af626;
   background-color: transparent;
-  padding: 0.5em 1.5em;
+  padding: 0.3em 1.6em;
 }
 
 .form-container .form-section-container.message { display: none; }
